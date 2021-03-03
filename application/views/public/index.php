@@ -67,7 +67,7 @@
 
                         ?>
                             <li class="nav-item ml-4 mb-0">
-                                <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold" href="<?php echo base_url().$this->session->userdata('type'); ?>">DASHBOARD
+                                <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold" href="<?php echo base_url() . $this->session->userdata('type'); ?>">DASHBOARD
                                     <span class="sr-only">(current)</span>
                                 </a>
                             </li>
@@ -228,6 +228,57 @@
 
                 <!--Grid row-->
                 <div class="row text-center mb-2">
+
+                    <?php
+
+                    foreach ($posts as $row) :
+                        // print_r($row);
+                    ?>
+                        <!--Grid column-->
+                        <div class="col-lg-4 col-md-12 mb-4">
+                            <!--Featured image-->
+                            <div class="view overlay z-depth-1 mb-2">
+                                <img src="<?php echo base_url(); ?>tools/image/photo8.jpg" class="img-fluid" alt="First sample image">
+                                <a>
+                                    <div class="mask rgba-white-slight"></div>
+                                </a>
+                            </div>
+
+                            <h4 class="mb-2 mt-4 font-weight-bold"><?php echo $row['article_title'] ?></h4>
+
+                            <!--Grid row-->
+                            <div class="row">
+
+                                <!--Grid column-->
+                                <div class="col-lg-6 col-md-6 text-lg-right ">
+                                    <p class="grey-text">
+                                        <i class="far fa-clock-o" aria-hidden="true"></i><?php echo $row['date'] ?>
+                                    </p>
+                                </div>
+                                <!--Grid column-->
+
+                                <!--Grid column-->
+                                <div class="col-lg-6 col-md-6 text-lg-left">
+                                    <p class="grey-text">
+                                        <!-- <i class="far fa-comment-dots" aria-hidden="true"></i> 6 Comments -->
+                                        <i class="far fa-comment-dots" aria-hidden="true"></i> Recommended
+                                    </p>
+                                </div>
+                                <!--Grid column-->
+
+                            </div>
+                            <!--Grid row-->
+                            <p class="dark-grey-text">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime
+                                placeat facere possimus voluptas...</p>
+                            <a class="text-uppercase font-small font-weight-bold spacing" href="<?php echo base_url() ?>home/blogpage">Read more</a>
+                            <hr class="mt-1" style="max-width: 90px">
+                        </div>
+                        <!--Grid column-->
+                    <?php
+
+                    endforeach;
+
+                    ?>
 
                     <!--Grid column-->
                     <div class="col-lg-4 col-md-12 mb-4">

@@ -132,17 +132,16 @@
 
                                 <!--Section heading-->
                                 <h1 class="text-center h1 pt-4 mb-3">
-
-                                    <strong><?php echo $post_data->article_title; ?></strong>
+                                    <strong>Title of the post</strong>
                                 </h1>
 
                                 <div class="row">
                                     <div class="col-md-12 col-xl-12 d-flex justify-content-center">
                                         <p class="font-small dark-grey-text mb-1">
-                                            <strong>Author:</strong> <?php echo $post_data->creater; ?>
+                                            <strong>Author:</strong> Haresh Prajapati
                                         </p>
                                         <p class="font-small grey-text mb-0 ml-3">
-                                            <i class="far fa-clock-o dark-grey-text"></i> <?php echo $post_data->date; ?>
+                                            <i class="far fa-clock-o dark-grey-text"></i> 15/09/2017 at 4:03 pm
                                         </p>
                                     </div>
                                 </div>
@@ -156,9 +155,8 @@
 
                                             <!--Grid row-->
                                             <div class="row mt-3">
-                                                <?php echo $post_data->article; ?>
 
-                                                <!-- <p class="dark-grey-text article">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                                <p class="dark-grey-text article">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                                     incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                                                     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                                                     consequat. Duis aute irure dolor in reprehenderit in voluptate velit
@@ -190,7 +188,7 @@
                                                 <p class="dark-grey-text article"> Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
                                                     laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel
                                                     eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae
-                                                    consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.</p> -->
+                                                    consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.</p>
 
                                             </div>
                                             <!--Grid row-->
@@ -199,18 +197,18 @@
                                             <div class="row mt-3 mb-4">
 
                                                 <!--Grid column-->
-                                                <!-- <div class="col-md-4 mb-2">
+                                                <div class="col-md-4 mb-2">
                                                     <div class="view zoom z-depth-1">
                                                         <img src="<?php echo base_url(); ?>tools/image/blogpage/img (28).jpg" class="img-fluid rounded-0" alt="sample-image">
                                                         <div class="mask flex-center">
 
                                                         </div>
                                                     </div>
-                                                </div> -->
+                                                </div>
                                                 <!--Grid column-->
 
                                                 <!--Grid column-->
-                                                <!-- <div class="col-md-4 mb-2">
+                                                <div class="col-md-4 mb-2">
                                                     <div class="view zoom z-depth-1">
                                                         <img src="<?php echo base_url(); ?>tools/image/blogpage/img (41).jpg" class="img-fluid rounded-0 z-depth-1" alt="sample-image">
                                                         <div class="mask flex-center">
@@ -218,11 +216,11 @@
                                                         </div>
                                                     </div>
 
-                                                </div> -->
+                                                </div>
                                                 <!--Grid column-->
 
                                                 <!--Grid column-->
-                                                <!-- <div class="col-md-4">
+                                                <div class="col-md-4">
                                                     <div class="view zoom z-depth-1">
                                                         <img src="<?php echo base_url(); ?>tools/image/blogpage/13.jpg" class="img-fluid rounded-0 z-depth-1" alt="sample-image">
                                                         <div class="mask flex-center">
@@ -230,7 +228,7 @@
                                                         </div>
                                                     </div>
 
-                                                </div> -->
+                                                </div>
                                                 <!--Grid column-->
 
                                             </div>
@@ -238,7 +236,7 @@
 
                                             <!--Grid row-->
                                             <div class="row mb-2 mt-4">
-                                                <!-- <p class="dark-grey-text article">Perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                                                <p class="dark-grey-text article">Perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
                                                     laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis
                                                     et quasi architecto beatae vitae dicta sunt explicabo. Ut enim ad minima
                                                     veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam,
@@ -255,15 +253,15 @@
                                                         <li>Ac tristique libero volutpat at</li>
                                                         <li>Vestibulum laoreet porttitor sem</li>
                                                     </ul>
-                                                </li> -->
+                                                </li>
 
                                                 <!--Grid column-->
-                                                <!-- <div class="col-md-12 my-4">
+                                                <div class="col-md-12 my-4">
                                                     <img src="<?php echo base_url(); ?>tools/image/blogpage/city10.jpg" class="img-fluid z-depth-1 rounded-0" alt="sample image">
-                                                </div> -->
+                                                </div>
                                                 <!--Grid column-->
 
-                                                <!-- <p class="dark-grey-text article">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+                                                <p class="dark-grey-text article">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
                                                     doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
                                                     veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo
                                                     enim ipsam voluptatem quia voluptas sit aspernatur ut perspiciatis unde
@@ -274,7 +272,7 @@
                                                     magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro
                                                     quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
                                                     velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore
-                                                    magnam aliquam quaerat voluptatem. -->
+                                                    magnam aliquam quaerat voluptatem.
                                             </div>
                                             <!--Grid row-->
 
@@ -282,22 +280,22 @@
                                             <div class="row my-5">
 
                                                 <!--Grid column-->
-                                                <!-- <div class="col-md-12 text-center">
+                                                <div class="col-md-12 text-center">
 
                                                     <h4 class="text-center font-weight-bold dark-grey-text mt-3 mb-3">
                                                         <strong>Share this post: </strong>
                                                     </h4>
 
                                                     <button type="button" class="btn btn-fb btn-sm">
-                                                        <i class="fab fa-facebook-f left"></i> Facebook</button> -->
-                                                <!--Twitter-->
-                                                <!-- <button type="button" class="btn btn-tw btn-sm">
-                                                        <i class="fab fa-twitter left"></i> Twitter</button> -->
-                                                <!--Google +-->
-                                                <!-- <button type="button" class="btn btn-gplus btn-sm">
-                                                        <i class="fab fa-google-plus-g left"></i> Google +</button> -->
+                                                        <i class="fab fa-facebook-f left"></i> Facebook</button>
+                                                    <!--Twitter-->
+                                                    <button type="button" class="btn btn-tw btn-sm">
+                                                        <i class="fab fa-twitter left"></i> Twitter</button>
+                                                    <!--Google +-->
+                                                    <button type="button" class="btn btn-gplus btn-sm">
+                                                        <i class="fab fa-google-plus-g left"></i> Google +</button>
 
-                                                <!-- </div> -->
+                                                </div>
                                                 <!--Grid column-->
 
                                             </div>

@@ -1,11 +1,18 @@
 <?php
 class home extends CI_Controller
 {
+
+    function __construct()
+    {
+        parent::__construct();
+        $this->load->model("home_model");
+    }
+
     public function about_user()
     {
-        $this->load->model("public_model");
+
         $id = 5;
-        $data['data'] = $this->public_model->about_user_model($id);
+        $data['data'] = $this->home_model->about_user_model($id);
         /* echo "<pre>";
             print_r($data);
         echo "</pre>"; */
@@ -14,14 +21,20 @@ class home extends CI_Controller
 
     public function index()
     {
-        $this->load->view('public/index');
+        $data['posts'] = $this->home_model->getAllPosts();
+
+
+        $this->load->view('public/index', $data);
     }
     public function userblog()
     {
         $this->load->view('public/userblog');
     }
-    public function blogpage()
+    public function blogpage($id)
     {
-        $this->load->view('public/blogpage');
+        $data['post_data'] = $this->home_model->getPostsData($id);
+
+        // print_r($data['post_data']->article_title);
+        $this->load->view('public/blogpage', $data);
     }
 }
