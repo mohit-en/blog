@@ -13,6 +13,17 @@
                     <label for="title">Title</label>
                     <input type="text" class="form-control" name="title" id="title" placeholder="title">
                 </div>
+
+                <div class="form-group mx-4 mt-3">
+                    <label for="short_description">Short Description</label>
+                    <input type="text" class="form-control" name="short_description" id="short_description" placeholder="Short Description">
+                </div>
+
+                <div class="form-group mx-4 mt-3">
+                    <label for="title">Poster Image</label>
+                    <input type="file" class="form-control" id="poster" accept="image/x-png,image/jpeg">
+                </div>
+
                 <!-- /.card-header -->
                 <div class="card-body">
                     <textarea id="summernote">
@@ -49,15 +60,41 @@
     //
     $("#save").click(function() {
         // console.log($("#summernote").val());
+        if ($("#title").val().trim().length <= 30) {
+            alert("enter title more then 30 character...");
+            return;
+        } else if ($("#short_description").val().trim().length <= 140) {
+            alert("Enter short discription");
+            return;
+        } else if (!$("#poster")[0].files[0]) {
+            alert("Please upload poster image please");
+            return;
+        } else if ($("#summernote").val().trim().length <= 150) {
+            alert("Enter proper blog length >150");
+            return;
+        }
+
+        var fd = new FormData();
+        var files = $("#poster")[0].files[0];
+        fd.append('poster_img', files);
+
+        fd.append('title', $("#title").val().trim());
+        fd.append('short_description', $("#short_description").val().trim());
+        fd.append('data', $("#summernote").val().trim());
+
         $.ajax({
             url: "<?php echo base_url() ?>api/add_post_api",
             type: "POST",
-            data: {
-                title: $("#title").val(),
-                data: $("#summernote").val().trim(),
-            },
+            data: fd,
+            processData: false,
+            contentType: false,
+            // data: {
+            //     title: $("#title").val(),
+            //     data: $("#summernote").val().trim(),
+            // },
             success: function(data) {
                 alert("Post added successfully");
+
                 location.href = "<?php echo base_url() ?>co_admin";
             }
         });

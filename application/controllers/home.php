@@ -21,18 +21,25 @@ class home extends CI_Controller
 
     public function index()
     {
-        $data['posts'] = $this->home_model->getAllPosts();
 
+        $formData['page'] = isset($_GET['page']) ? $_GET['page'] : 1;
+        $data['data'] = $this->home_model->getAllPosts($formData);
 
+        // print_r($data['posts']);
         $this->load->view('public/index', $data);
     }
+
+
     public function userblog()
     {
         $this->load->view('public/userblog');
     }
     public function blogpage($id)
     {
-        $data['post_data'] = $this->home_model->getPostsData($id);
+
+        $formData['id'] = $id;
+
+        $data['post_data'] = $this->home_model->getPostsData($formData);
 
         // print_r($data['post_data']->article_title);
         $this->load->view('public/blogpage', $data);

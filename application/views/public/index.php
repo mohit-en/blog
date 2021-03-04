@@ -229,56 +229,48 @@
                 <!--Grid row-->
                 <div class="row text-center mb-2">
 
-                    <?php
-
-                    foreach ($posts as $row) :
-                        // print_r($row);
-                    ?>
-                        <!--Grid column-->
-                        <div class="col-lg-4 col-md-12 mb-4">
-                            <!--Featured image-->
-                            <div class="view overlay z-depth-1 mb-2">
-                                <img src="<?php echo base_url(); ?>tools/image/photo8.jpg" class="img-fluid" alt="First sample image">
-                                <a>
-                                    <div class="mask rgba-white-slight"></div>
-                                </a>
-                            </div>
-
-                            <h4 class="mb-2 mt-4 font-weight-bold"><?php echo $row['article_title'] ?></h4>
-
-                            <!--Grid row-->
-                            <div class="row">
-
-                                <!--Grid column-->
-                                <div class="col-lg-6 col-md-6 text-lg-right ">
-                                    <p class="grey-text">
-                                        <i class="far fa-clock-o" aria-hidden="true"></i><?php echo $row['date'] ?>
-                                    </p>
-                                </div>
-                                <!--Grid column-->
-
-                                <!--Grid column-->
-                                <div class="col-lg-6 col-md-6 text-lg-left">
-                                    <p class="grey-text">
-                                        <!-- <i class="far fa-comment-dots" aria-hidden="true"></i> 6 Comments -->
-                                        <i class="far fa-comment-dots" aria-hidden="true"></i> Recommended
-                                    </p>
-                                </div>
-                                <!--Grid column-->
-
-                            </div>
-                            <!--Grid row-->
-                            <p class="dark-grey-text">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime
-                                placeat facere possimus voluptas...</p>
-                            <a class="text-uppercase font-small font-weight-bold spacing" href="<?php echo base_url() ?>home/blogpage">Read more</a>
-                            <hr class="mt-1" style="max-width: 90px">
+                    
+                    <!--Grid column-->
+                    <div class="col-lg-4 col-md-12 mb-4">
+                        <!--Featured image-->
+                        <div class="view overlay z-depth-1 mb-2">
+                            <img src="<?php echo base_url(); ?>tools/image/photo8.jpg" class="img-fluid" alt="First sample image">
+                            <a>
+                                <div class="mask rgba-white-slight"></div>
+                            </a>
                         </div>
-                        <!--Grid column-->
-                    <?php
 
-                    endforeach;
+                        <h4 class="mb-2 mt-4 font-weight-bold"><?php echo $row['article_title'] ?></h4>
 
-                    ?>
+                        <!--Grid row-->
+                        <div class="row">
+
+                            <!--Grid column-->
+                            <div class="col-lg-6 col-md-6 text-lg-right ">
+                                <p class="grey-text">
+                                    <i class="far fa-clock-o" aria-hidden="true"></i><?php echo $row['date'] ?>
+                                </p>
+                            </div>
+                            <!--Grid column-->
+
+                            <!--Grid column-->
+                            <div class="col-lg-6 col-md-6 text-lg-left">
+                                <p class="grey-text">
+                                    <!-- <i class="far fa-comment-dots" aria-hidden="true"></i> 6 Comments -->
+                                    <i class="far fa-comment-dots" aria-hidden="true"></i> Recommended
+                                </p>
+                            </div>
+                            <!--Grid column-->
+
+                        </div>
+                        <!--Grid row-->
+                        <p class="dark-grey-text">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime
+                            placeat facere possimus voluptas...</p>
+                        <a class="text-uppercase font-small font-weight-bold spacing" href="<?php echo base_url() ?>home/blogpage">Read more</a>
+                        <hr class="mt-1" style="max-width: 90px">
+                    </div>
+                    <!--Grid column-->
+                  
 
                     <!--Grid column-->
                     <div class="col-lg-4 col-md-12 mb-4">
@@ -658,54 +650,10 @@
                 </div>
                 <!--Grid row-->
 
+
                 <!--Pagination -->
                 <nav class="my-4 flex-center">
-                    <ul class="pagination pagination-circle pg-blue mb-0">
-
-                        <!--First-->
-                        <li class="page-item disabled clearfix d-none d-md-block">
-                            <a class="page-link">First</a>
-                        </li>
-
-                        <!--Arrow left-->
-                        <li class="page-item disabled">
-                            <a class="page-link" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                        </li>
-
-                        <!--Numbers-->
-                        <li class="page-item active">
-                            <a class="page-link">1</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link">2</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link">3</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link">4</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link">5</a>
-                        </li>
-
-                        <!--Arrow right-->
-                        <li class="page-item">
-                            <a class="page-link" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </li>
-
-                        <!--First-->
-                        <li class="page-item clearfix d-none d-md-block">
-                            <a class="page-link">Last</a>
-                        </li>
-
-                    </ul>
+                    <p id="pagination-here"></p>
                 </nav>
                 <!--/Pagination -->
 
@@ -1138,6 +1086,56 @@
         // MDB Lightbox Init
         $(function() {
             $("#mdb-lightbox-ui").load("<?php echo base_url(); ?>tools/public/lightbox/mdb-lightbox-ui.html");
+        });
+    </script>
+
+    <!-- paging -->
+    <script src="<?php echo base_url() ?>tools/dist/js/paging.js"></script>
+
+    <script>
+        // $('.demo').bootpag({
+        //     total: 50,
+        //     page: 2,
+        //     maxVisible: 5,
+        //     leaps: true,
+        //     firstLastUse: true,
+        //     first: '←',
+        //     last: '→',
+        //     wrapClass: 'pagination',
+        //     // activeClass: 'active',
+        //     activeClass: 'page-item active',
+        //     disabledClass: 'disabled',
+        //     nextClass: 'next',
+        //     prevClass: 'prev',
+        //     lastClass: 'last',
+        //     firstClass: 'first'
+        // }).on("page", function(event, num) {
+        //     $(".content4").html("Page " + num); // or some ajax content loading...
+        // });
+
+        $('#pagination-here').bootpag({
+
+            total: <?php echo $data['total_pages'] ?>,
+            page: <?php echo $data['active_page'] ?>,
+            maxVisible: 5,
+            leaps: true,
+            firstLastUse: true,
+            first: '←',
+            last: '→',
+            wrapClass: 'pagination',
+            activeClass: 'active',
+            disabledClass: 'disabled',
+            nextClass: 'next',
+            prevClass: 'prev',
+            lastClass: 'last',
+            firstClass: 'first'
+        }).on("page", function(event, num) {
+
+            window.location.href = `?page=${num}`
+            // ... after content load -> change total to 10
+            $(this).bootpag({
+                maxVisible: 5
+            });
         });
     </script>
 </body>

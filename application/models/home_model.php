@@ -9,16 +9,38 @@ class home_model extends CI_Model
         return $data;
     }
 
-    function getAllPosts()
+    function getAllPosts($formData)
     {
-        $data = $this->db->get('total_posts')->result_array();
+        $currentPage = $formData['page'];
 
-        return $data;
+        $display_post_per_page = 9;
+
+        $totalPosts = $this->db->query("SELECT * FROM total_posts")->num_rows();
+
+        $totalPages = ceil($totalPosts / $display_post_per_page);
+
+        $limitNumber = ($currentPage - 1) * $display_post_per_page;
+
+        $postData = $this->db->query("SELECT * FROM total_posts LIMIT $limitNumber,$display_post_per_page")->result();
+
+
+        return array(
+            'total_pages' => $totalPages,
+            'post_data' => $postData,
+            'active_page' => $formData['page']
+        );
+        // $data = $this->db->query("SELECT * FROM total_posts")->result();
+
+        // return $data;
     }
 
-    function getPostsData($id)
+    function getPostsData($formData)
     {
-        $data = $this->db->where('post_id', $id)->get('total_posts')->result()[0];
+        // $data = $this->db->where('post_id', $id)->get('total_posts')->result()[0];
+
+        $id = $formData['id'];
+
+        $data = $this->db->query("SELECT * FROM total_posts WHERE post_id = $id")->result()[0];
 
         return $data;
     }

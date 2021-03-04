@@ -74,12 +74,22 @@ class api extends CI_Controller
     {
         if ($this->input->post("title")) {
             $formData['article_title'] = $this->input->post("title");
+            $formData['short_description'] = $this->input->post("short_description");
+
             $formData['article'] = $this->input->post("data");
             $formData['user_id'] = $this->session->userdata('id');
             $formData['creater'] = $this->session->userdata('name');
             $formData['date'] = date('Y-m-d');
-            
 
+            if ($_FILES['poster_img'] && $_FILES['poster_img']['tmp_name']) {
+                $imageFileType = pathinfo($_FILES['poster_img']['name'], PATHINFO_EXTENSION);
+                $filename = rand(1, 10000) . "-" . rand(1, 10000) . "-" . rand(1, 10000) . rand(1, 10000) . ".$imageFileType";
+                $location = "uploads/posts/" . $filename;
+
+                move_uploaded_file($_FILES['poster_img']['tmp_name'], $location);
+
+                $formData['img_path'] = $location;
+            }
             $this->api_model->insert_post_model($formData);
         }
     }
