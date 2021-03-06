@@ -17,6 +17,9 @@
     <!-- Material Design Bootstrap -->
     <link href="<?php echo base_url(); ?>tools/public/css/mdb.min.css" rel="stylesheet">
 
+    <!-- Custom css -->
+    <link href="<?php echo base_url(); ?>tools/dist/css/custom.css" rel="stylesheet">
+
 </head>
 
 <body class="homepage-v4 hidden-sn animated">
@@ -229,169 +232,36 @@
                 <!--Grid row-->
                 <div class="row text-center mb-2">
 
-                    
-                    <!--Grid column-->
-                    <div class="col-lg-4 col-md-12 mb-4">
-                        <!--Featured image-->
-                        <div class="view overlay z-depth-1 mb-2">
-                            <img src="<?php echo base_url(); ?>tools/image/photo8.jpg" class="img-fluid" alt="First sample image">
-                            <a>
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
-
-                        <h4 class="mb-2 mt-4 font-weight-bold"><?php echo $row['article_title'] ?></h4>
-
-                        <!--Grid row-->
-                        <div class="row">
-
-                            <!--Grid column-->
-                            <div class="col-lg-6 col-md-6 text-lg-right ">
-                                <p class="grey-text">
-                                    <i class="far fa-clock-o" aria-hidden="true"></i><?php echo $row['date'] ?>
-                                </p>
+                    <!-- custom card -->
+                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                        <div class="card card-small card-post card-post--1">
+                            <div class="card-post__image" style="
+                        background-image: url('https://designrevision.com/demo/shards-dashboard-lite/images/content-management/2.jpeg');
+                      ">
+                                <!-- <a href="#" class="card-post__category badge badge-pill badge-info">Travel</a>
+                                <div class="card-post__author d-flex mt-2 mb-2">
+                                    <a href="#" class="card-post__author-avatar card-post__author-avatar--small" style="background-image: url('https://designrevision.com/demo/shards-dashboard-lite/images/avatars/1.jpg');">Written by James Jamerson</a>
+                                </div> -->
                             </div>
-                            <!--Grid column-->
-
-                            <!--Grid column-->
-                            <div class="col-lg-6 col-md-6 text-lg-left">
-                                <p class="grey-text">
-                                    <!-- <i class="far fa-comment-dots" aria-hidden="true"></i> 6 Comments -->
-                                    <i class="far fa-comment-dots" aria-hidden="true"></i> Recommended
+                            <div class="card-body">
+                                <h5 class="card-title mt-2">
+                                    <a class="text-fiord-blue" href="#">Off tears are day blind smile alone had ready</a>
+                                </h5>
+                                <p class="card-text d-inline-block mb-3">
+                                    Is at purse tried jokes china ready decay an. Small its
+                                    shy way had woody downs power. To denoting admitted
+                                    speaking learning my...
                                 </p>
+                                <span class="text-muted">29 February 2019</span>
                             </div>
-                            <!--Grid column-->
-
+                            <div class="card-footer text-muted border-top py-3">
+                                <span class="d-inline-block">By
+                                    <a class="text-fiord-blue" href="#">Alene Trenton</a> in
+                                    <a class="text-fiord-blue" href="#">News</a></span>
+                            </div>
                         </div>
-                        <!--Grid row-->
-                        <p class="dark-grey-text">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime
-                            placeat facere possimus voluptas...</p>
-                        <a class="text-uppercase font-small font-weight-bold spacing" href="<?php echo base_url() ?>home/blogpage">Read more</a>
-                        <hr class="mt-1" style="max-width: 90px">
                     </div>
-                    <!--Grid column-->
-                  
-
-                    <!--Grid column-->
-                    <div class="col-lg-4 col-md-12 mb-4">
-                        <!--Featured image-->
-                        <div class="view overlay z-depth-1 mb-2">
-                            <img src="<?php echo base_url(); ?>tools/image/photo8.jpg" class="img-fluid" alt="First sample image">
-                            <a>
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
-
-                        <h4 class="mb-2 mt-4 font-weight-bold">This is title of the news</h4>
-
-                        <!--Grid row-->
-                        <div class="row">
-
-                            <!--Grid column-->
-                            <div class="col-lg-6 col-md-6 text-lg-right ">
-                                <p class="grey-text">
-                                    <i class="far fa-clock-o" aria-hidden="true"></i> July 5, 2017
-                                </p>
-                            </div>
-                            <!--Grid column-->
-
-                            <!--Grid column-->
-                            <div class="col-lg-6 col-md-6 text-lg-left">
-                                <p class="grey-text">
-                                    <i class="far fa-comment-dots" aria-hidden="true"></i> 6 Comments
-                                </p>
-                            </div>
-                            <!--Grid column-->
-
-                        </div>
-                        <!--Grid row-->
-                        <p class="dark-grey-text">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime
-                            placeat facere possimus voluptas...</p>
-                        <a class="text-uppercase font-small font-weight-bold spacing">Read more</a>
-                        <hr class="mt-1" style="max-width: 90px">
-                    </div>
-                    <!--Grid column-->
-
-                    <!--Grid column-->
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <!--Featured image-->
-                        <div class="view overlay z-depth-1 mb-2">
-                            <img src="<?php echo base_url(); ?>tools/image/photo9.jpg" class="img-fluid" alt="Second sample image">
-                            <a>
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
-
-                        <h4 class="mb-2 mt-4 font-weight-bold">This is title of the news</h4>
-
-                        <!--Grid row-->
-                        <div class="row">
-
-                            <!--Grid column-->
-                            <div class="col-lg-6 col-md-6 text-lg-right">
-                                <p class="grey-text">
-                                    <i class="far fa-clock-o" aria-hidden="true"></i> July 5, 2017
-                                </p>
-                            </div>
-                            <!--Grid column-->
-
-                            <!--Grid column-->
-                            <div class="col-lg-6 col-md-6 text-lg-left">
-                                <p class="grey-text">
-                                    <i class="far fa-comment-dots" aria-hidden="true"></i> 6 Comments
-                                </p>
-                            </div>
-                            <!--Grid column-->
-
-                        </div>
-                        <!--Grid row-->
-                        <p class="dark-grey-text">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime
-                            placeat facere possimus voluptas...</p>
-                        <a class="text-uppercase font-small font-weight-bold spacing">Read more</a>
-                        <hr class="mt-1" style="max-width: 90px">
-                    </div>
-                    <!--Grid column-->
-
-                    <!--Grid column-->
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <!--Featured image-->
-                        <div class="view overlay z-depth-1 mb-2">
-                            <img src="<?php echo base_url(); ?>tools/image/photo7.jpg" class="img-fluid" alt="Thrid sample image">
-                            <a>
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
-
-                        <h4 class="mb-2 mt-4 font-weight-bold">This is title of the news</h4>
-
-                        <!--Grid row-->
-                        <div class="row">
-
-                            <!--Grid column-->
-                            <div class="col-lg-6 col-md-6 text-lg-right">
-                                <p class="grey-text">
-                                    <i class="far fa-clock-o" aria-hidden="true"></i> July 5, 2017
-                                </p>
-                            </div>
-                            <!--Grid column-->
-
-                            <!--Grid column-->
-                            <div class="col-lg-6 col-md-6 text-lg-left">
-                                <p class="grey-text">
-                                    <i class="far fa-comment-dots" aria-hidden="true"></i> 6 Comments
-                                </p>
-                            </div>
-                            <!--Grid column-->
-
-                        </div>
-                        <!--Grid row-->
-                        <p class="dark-grey-text">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime
-                            placeat facere possimus voluptas...</p>
-                        <a class="text-uppercase font-small font-weight-bold spacing">Read more</a>
-                        <hr class="mt-1" style="max-width: 90px">
-                    </div>
-                    <!--Grid column-->
-
+                    <!--  -->
                 </div>
                 <!--Grid row-->
 
@@ -483,135 +353,6 @@
                         <!--Featured image-->
                         <div class="view overlay z-depth-1 mb-2">
                             <img src="<?php echo base_url(); ?>tools/image/laptop1.jpg" class="img-fluid" alt="Thrid sample image">
-                            <a>
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
-
-                        <h4 class="mb-2 mt-4 font-weight-bold">This is title of the news</h4>
-
-                        <!--Grid row-->
-                        <div class="row">
-
-                            <!--Grid column-->
-                            <div class="col-lg-6 col-md-6 text-lg-right">
-                                <p class="grey-text">
-                                    <i class="far fa-clock-o" aria-hidden="true"></i> July 5, 2017
-                                </p>
-                            </div>
-                            <!--Grid column-->
-
-                            <!--Grid column-->
-                            <div class="col-lg-6 col-md-6 text-lg-left">
-                                <p class="grey-text">
-                                    <i class="far fa-comment-dots" aria-hidden="true"></i> 6 Comments
-                                </p>
-                            </div>
-                            <!--Grid column-->
-
-                        </div>
-                        <!--Grid row-->
-                        <p class="dark-grey-text">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime
-                            placeat facere possimus voluptas...</p>
-                        <a class="text-uppercase font-small font-weight-bold spacing">Read more</a>
-                        <hr class="mt-1" style="max-width: 90px">
-                    </div>
-                    <!--Grid column-->
-
-                </div>
-                <!--Grid row-->
-
-                <!--Grid row-->
-                <div class="row text-center mb-4">
-
-                    <!--Grid column-->
-                    <div class="col-lg-4 col-md-12 mb-4">
-                        <!--Featured image-->
-                        <div class="view overlay z-depth-1 mb-2">
-                            <img src="<?php echo base_url(); ?>tools/image/photo2.jpg" class="img-fluid" alt="First sample image">
-                            <a>
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
-
-                        <h4 class="mb-2 mt-4 font-weight-bold">This is title of the news</h4>
-
-                        <!--Grid row-->
-                        <div class="row">
-
-                            <!--Grid column-->
-                            <div class="col-lg-6 col-md-6 text-lg-right">
-                                <p class="grey-text">
-                                    <i class="far fa-clock-o" aria-hidden="true"></i> July 5, 2017
-                                </p>
-                            </div>
-                            <!--Grid column-->
-
-                            <!--Grid column-->
-                            <div class="col-lg-6 col-md-6 text-lg-left">
-                                <p class="grey-text">
-                                    <i class="far fa-comment-dots" aria-hidden="true"></i> 6 Comments
-                                </p>
-                            </div>
-                            <!--Grid column-->
-
-                        </div>
-                        <!--Grid row-->
-                        <p class="dark-grey-text">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime
-                            placeat facere possimus voluptas...</p>
-                        <a class="text-uppercase font-small font-weight-bold spacing">Read more</a>
-                        <hr class="mt-1" style="max-width: 90px">
-                    </div>
-                    <!--Grid column-->
-
-                    <!--Grid column-->
-                    <div class="col-lg-4 col-md-6 mb-4">
-
-                        <!--Featured image-->
-                        <div class="view overlay z-depth-1 mb-2">
-                            <img src="<?php echo base_url(); ?>tools/image/photo10.jpg" class="img-fluid" alt="Second sample image">
-                            <a>
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
-
-                        <h4 class="mb-2 mt-4 font-weight-bold">This is title of the news</h4>
-
-                        <!--Grid row-->
-                        <div class="row">
-
-                            <!--Grid column-->
-                            <div class="col-lg-6 col-md-6 text-lg-right">
-                                <p class="grey-text">
-                                    <i class="far fa-clock-o" aria-hidden="true"></i> July 5, 2017
-                                </p>
-                            </div>
-                            <!--Grid column-->
-
-                            <!--Grid column-->
-                            <div class="col-lg-6 col-md-6 text-lg-left">
-                                <p class="grey-text">
-                                    <i class="far fa-comment-dots" aria-hidden="true"></i> 6 Comments
-                                </p>
-                            </div>
-                            <!--Grid column-->
-
-                        </div>
-                        <!--Grid row-->
-
-                        <p class="dark-grey-text">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime
-                            placeat facere possimus voluptas...</p>
-                        <a class="text-uppercase font-small font-weight-bold spacing">Read more</a>
-                        <hr class="mt-1" style="max-width: 90px">
-                    </div>
-                    <!--Grid column-->
-
-                    <!--Grid column-->
-                    <div class="col-lg-4 col-md-6 mb-4">
-
-                        <!--Featured image-->
-                        <div class="view overlay z-depth-1 mb-2">
-                            <img src="<?php echo base_url(); ?>tools/image/img (45).jpg" class="img-fluid" alt="Thrid sample image">
                             <a>
                                 <div class="mask rgba-white-slight"></div>
                             </a>
