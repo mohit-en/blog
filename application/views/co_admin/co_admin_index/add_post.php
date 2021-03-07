@@ -21,7 +21,7 @@
 
                 <div class="form-group mx-4 mt-3">
                     <label for="title">Poster Image</label>
-                    <input type="file" class="form-control" id="poster" accept="image/x-png,image/jpeg">
+                    <input type="file" class="form-control" id="poster" accept="image/x-png,image/jpeg" required>
                 </div>
 
                 <!-- /.card-header -->
@@ -43,6 +43,7 @@
 
 <script>
     // /
+
     $(function() {
         // Summernote
         $("#summernote").summernote({
