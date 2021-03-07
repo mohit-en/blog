@@ -89,8 +89,9 @@ class api extends CI_Controller
                 move_uploaded_file($_FILES['poster_img']['tmp_name'], $location);
 
                 $formData['img_path'] = $location;
+
+                $this->api_model->insert_post_model($formData);
             }
-            $this->api_model->insert_post_model($formData);
         }
     }
 }

@@ -55,26 +55,46 @@
                                 <a class="dropdown-item waves-effect waves-light" href="#">V4</a>
                             </div>
                         </li>
-                        <li class="nav-item dropdown ml-4  mb-0">
+                        <!-- <li class="nav-item dropdown ml-4  mb-0">
                             <a href="#" class="nav-link dropdown-toggle waves-effect waves-light dark-grey-text font-weight-bold" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ABOUT</a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink-4">
                                 <a class="dropdown-item waves-effect waves-light" href="#">V1</a>
                                 <a class="dropdown-item waves-effect waves-light" href="#">V2</a>
                                 <a class="dropdown-item waves-effect waves-light" href="#">V3</a>
                             </div>
-                        </li>
-                        <li class="nav-item ml-4 mb-0">
-                            <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold" href="<?php echo base_url() ?>login">LOGIN
-                                <span class="sr-only">(current)</span>
-                            </a>
-                        </li>
+                        </li> -->
+                        <?php if ($this->session->userdata('type')) :
 
-                        <li class="nav-item ml-4 mb-0">
-                            <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold" href="<?php echo base_url() ?>register">SIGNUP
-                                <span class="sr-only">(current)</span>
-                            </a>
-                        </li>
-                        </li>
+                        ?>
+                            <li class="nav-item ml-4 mb-0">
+                                <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold" href="<?php echo base_url() . $this->session->userdata('type'); ?>">DASHBOARD
+                                    <span class="sr-only">(current)</span>
+                                </a>
+                            </li>
+
+                            <li class="nav-item ml-4 mb-0">
+                                <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold" href="<?php echo base_url() ?>co_admin/logout">LOG-OUT
+                                    <span class="sr-only">(current)</span>
+                                </a>
+                            </li>
+                        <?php
+                        else :
+                        ?>
+                            <li class="nav-item ml-4 mb-0">
+                                <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold" href="<?php echo base_url() ?>login">LOGIN
+                                    <span class="sr-only">(current)</span>
+                                </a>
+                            </li>
+
+                            <li class="nav-item ml-4 mb-0">
+                                <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold" href="<?php echo base_url() ?>register">SIGNUP
+                                    <span class="sr-only">(current)</span>
+                                </a>
+                            </li>
+                        <?php
+                        endif;
+
+                        ?>
 
                     </ul>
                 </div>

@@ -11,7 +11,21 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="<?php echo base_url(); ?>tools/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image" />
+                <?php
+
+                $url = $this->db->where('user_id', $this->session->userdata('id'))
+                    ->get('user_list')->result_array()[0]['profile_pic'];
+
+                if (!empty($url)) {
+                    $img_path =   base_url() . $url;
+                } else {
+                    $img_path =  "https://www.w3schools.com/howto/img_avatar.png";
+                }
+
+                ?>
+
+
+                <img src="<?php echo $img_path; ?>" class="img-circle elevation-2" alt="User Image" />
             </div>
             <div class="info">
                 <a href="" class="d-block"><?php echo $this->session->userdata('name'); ?></a>

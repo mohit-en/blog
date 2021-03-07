@@ -37,5 +37,23 @@ class co_admin_model extends CI_Model
         $id = $this->session->userdata('id');
         $this->db->where('user_id', $id);
         $this->db->update('user_list', $data);
+
+        $this->db->where('reg_id', $this->session->userdata('reg_id'))
+            ->set('name', $data['user_name'])
+            ->set('email', $data['email'])
+            ->update('user_register');
+
+        $this->session->set_userdata('name', $data['user_name']);
+    }
+
+    function update_profile_pic($data)
+    {
+        $url = $this->db->where('user_id', $data['user_id'])
+            ->get('user_list')->result_array()[0]['profile_pic'];
+
+        unlink($url);
+
+        $this->db->where('user_id', $data['user_id']);
+        $this->db->update('user_list', array('profile_pic' => $data['img_path']));
     }
 }

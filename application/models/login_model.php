@@ -12,6 +12,7 @@ class login_model extends CI_Model
                         $this->session->set_userdata('id', $row->user_id);
                         $this->session->set_userdata('name', $row->user_name);
                         $this->session->set_userdata('type', $row->type);
+                        $this->session->set_userdata('reg_id',$row->reg_id);
                     } else {
                         return 'Wrong Password';
                     }

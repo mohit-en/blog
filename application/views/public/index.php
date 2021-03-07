@@ -246,7 +246,7 @@
                                 </div>
                                 <div class="card-body">
                                     <h5 class="card-title mt-2">
-                                        <a class="text-fiord-blue" href="#"><?php echo $row->article_title ?></a>
+                                        <a class="text-fiord-blue" href="<?php echo base_url() . 'home/blogpage/' . $row->post_id ?>"><?php echo $row->article_title ?></a>
                                     </h5>
                                     <p class="card-text d-inline-block mb-3">
                                         <?php echo $row->short_description ?>
@@ -255,7 +255,7 @@
                                 </div>
                                 <div class="card-footer text-muted border-top py-3">
                                     <span class="d-inline-block">By
-                                        <a class="text-fiord-blue" href="#">
+                                        <a class="text-fiord-blue" href="<?php echo base_url() . 'home/userblog' ?>">
                                             <?php echo $row->creater ?>
                                         </a>
                                 </div>

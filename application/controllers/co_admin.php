@@ -12,6 +12,7 @@ class co_admin extends CI_Controller
 		if ($this->session->userdata('type') != "co_admin") {
 			redirect('admin/index');
 		}
+		$this->load->model('co_admin_model');
 	}
 	public function index()
 	{
@@ -70,7 +71,6 @@ class co_admin extends CI_Controller
 	}
 	public function update_profile_user()
 	{
-
 		$data = array(
 			'user_name'  => $this->input->post('inputName'),
 			'email'  => $this->input->post('email'),
@@ -84,12 +84,36 @@ class co_admin extends CI_Controller
 			'moblie' => $this->input->post('moblie'),
 			'phone' => $this->input->post('phone')
 		);
+
+		if (empty($data['user_name']) || empty($data['email'])) {
+			redirect(base_url() . "co_admin/update_profile");
+			return;
+		}
+
 		$this->load->model('co_admin_model');
 		$this->co_admin_model->update_profile($data);
 		redirect('co_admin/update_profile');
 		/* echo "<pre>";
 		print_r($data);
 		echo "</pre>"; */
+	}
+
+	function upload_profile_pic()
+	{
+		$formData['user_id'] = $this->session->userdata('id');
+
+		if ($_FILES['profile_img'] && $_FILES['profile_img']['tmp_name']) {
+			$imageFileType = pathinfo($_FILES['profile_img']['name'], PATHINFO_EXTENSION);
+			$filename = rand(1, 10000) . "-" . rand(1, 10000) . "-" . rand(1, 10000) . rand(1, 10000) . ".$imageFileType";
+			$location = "uploads/users/" . $filename;
+
+			move_uploaded_file($_FILES['profile_img']['tmp_name'], $location);
+
+			$formData['img_path'] = $location;
+			$this->co_admin_model->update_profile_pic($formData);
+
+			redirect(base_url() . "co_admin/update_profile");
+		}
 	}
 
 	public function calender()

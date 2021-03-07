@@ -13,7 +13,26 @@
                     </div>
                 </div>
                 <div class="card-body" style="display: block;">
-                    <form action="<?php echo base_url(); ?>co_admin/update_profile_user" method="post">
+
+                    <form id="upload_form" action="<?php echo base_url() ?>co_admin/upload_profile_pic" method="post" enctype="multipart/form-data">
+                        <center>
+                            <div class="image">
+                                <?php
+                                if (!empty($profile[0]->profile_pic)) {
+                                    $img_path =   base_url() . $profile[0]->profile_pic;
+                                } else {
+                                    $img_path =  "https://www.w3schools.com/howto/img_avatar.png";
+                                }
+                                ?>
+                                <img height="200px" width="200px" onclick="$('#upload').click()" src="<?php echo $img_path; ?>" class="img-circle elevation-2" alt="User Image">
+                            </div>
+                        </center>
+
+                        <input name="profile_img" accept="image/x-png,image/jpeg" type="file" id="upload" hidden onchange="$('#upload_form').submit()" />
+                    </form>
+
+                    <form action="<?php echo base_url(); ?>co_admin/update_profile_user" method="post" class="mt-3">
+
                         <div class="form-group">
                             <label for="inputName">User Name</label>
                             <input type="text" name="inputName" id="inputName" class="form-control" value="<?php echo $profile[0]->user_name ?>">
@@ -69,6 +88,6 @@
         <div class="col-md-3"></div>
 
     </div>
-    
-    
+
+
 </section>
