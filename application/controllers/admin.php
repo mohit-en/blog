@@ -35,9 +35,15 @@ class admin extends CI_Controller
 	{
 
 		$reg_id = $this->input->get('reg_id');
-		$this->load->model('admin_model');
-		$users_permission['users_permission'] = $this->admin_model->users_permission($reg_id);
-		redirect('admin/panding_request');
+		if ($this->input->get('access') == 1) {
+			$this->load->model('admin_model');
+			$users_permission['users_permission'] = $this->admin_model->users_permission($reg_id);
+			redirect('admin/panding_request');
+		} else {
+			$this->db->where('reg_id', $reg_id)
+				->delete('user_register');
+			redirect('admin/panding_request');
+		}
 	}
 	public function delete_row()
 	{

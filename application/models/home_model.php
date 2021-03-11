@@ -44,4 +44,29 @@ class home_model extends CI_Model
 
         return $data;
     }
+
+    function get_users_data($formData)
+    {
+        $currentPage = $formData['page'];
+        $userName = $formData['user_name'];
+
+        $display_post_per_page = 4;
+
+        $user_id = $this->db->query("SELECT user_id FROM user_list where user_name = '$userName'")->result()[0]->user_id;
+
+        $totalPosts = $this->db->query("SELECT * FROM total_posts where user_id = $user_id")->num_rows();
+
+        $totalPages = ceil($totalPosts / $display_post_per_page);
+
+        $limitNumber = ($currentPage - 1) * $display_post_per_page;
+
+        $postData = $this->db->query("SELECT * FROM total_posts LIMIT $limitNumber,$display_post_per_page")->result();
+
+
+        return array(
+            'total_pages' => $totalPages,
+            'post_data' => $postData,
+            'active_page' => $formData['page']
+        );
+    }
 }

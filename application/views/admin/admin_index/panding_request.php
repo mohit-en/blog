@@ -44,6 +44,7 @@
                                         <th>Email</th>
                                         <th>Country</th>
                                         <th>Access</th>
+                                        <th>Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -54,8 +55,8 @@
                                                 <td><?php echo $user['name']; ?></td>
                                                 <td><?php echo $user['email']; ?></td>
                                                 <td><?php echo $user['country']; ?></td>
-                                                <td><?php echo anchor(base_url('admin/access_row?reg_id=') . $user['reg_id'], 'Access'); ?></td>
-
+                                                <td><?php echo anchor(base_url('admin/access_row?reg_id=') . $user['reg_id'] . '&access=1', 'Access'); ?></td>
+                                                <td><?php echo anchor(base_url('admin/access_row?reg_id=') . $user['reg_id'] . '&access=0', 'Delete'); ?></td>
                                             </tr>
                                         <?php }
                                     } else {  ?>
@@ -72,11 +73,10 @@
                                         <th>Email</th>
                                         <th>Country</th>
                                         <th>Access</th>
+                                        <th>Delete</th>
                                     </tr>
                                 </tfoot>
                             </table>
-
-
                         </div>
                         <!-- /.card-body -->
                     </div>

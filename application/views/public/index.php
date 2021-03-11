@@ -255,7 +255,7 @@
                                 </div>
                                 <div class="card-footer text-muted border-top py-3">
                                     <span class="d-inline-block">By
-                                        <a class="text-fiord-blue" href="<?php echo base_url() . 'home/userblog' ?>">
+                                        <a class="text-fiord-blue" href="<?php echo base_url() . 'home/userblog/' . $row->creater; ?>">
                                             <?php echo $row->creater ?>
                                         </a>
                                 </div>
@@ -269,7 +269,6 @@
 
                 </div>
                 <!--Grid row-->
-
 
 
 
