@@ -61,11 +61,11 @@
     //
     $("#save").click(function() {
         // console.log($("#summernote").val());
-        if ($("#title").val().trim().length <= 30) {
-            alert("enter title more then 30 character...");
+        if ($("#title").val().trim().length <= 10 || $("#title").val().trim().length >= 80) {
+            alert("enter title more then 10 character... and less then 50");
             return;
-        } else if ($("#short_description").val().trim().length <= 140) {
-            alert("Enter short discription");
+        } else if ($("#short_description").val().trim().length <= 50 || $("#short_description").val().trim().length >= 100) {
+            alert("enter short discription more then 50 character... and less then 100");
             return;
         } else if (!$("#poster")[0].files[0]) {
             alert("Please upload poster image please");

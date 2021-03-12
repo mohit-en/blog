@@ -78,7 +78,7 @@ class api extends CI_Controller
 
             $formData['article'] = $this->input->post("data");
             $formData['user_id'] = $this->session->userdata('id');
-            $formData['creater'] = $this->session->userdata('name');
+
             $formData['date'] = date('Y-m-d');
 
             if ($_FILES['poster_img'] && $_FILES['poster_img']['tmp_name']) {

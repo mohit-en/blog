@@ -1034,7 +1034,15 @@
         new WOW().init();
     </script>
 
+    <script>
+        $(document).ready(function() {
+            const allimg = document.getElementsByTagName('img');
 
+            for (i = 0; i < allimg.length; i++) {
+                allimg[i].style.width = "100%";
+            }
+        })
+    </script>
 
 </body>
 

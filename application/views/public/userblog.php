@@ -20,7 +20,8 @@
 </head>
 
 <body class="homepage-v1 hidden-sn animated">
-
+    <pre><?php print_r($data); ?>
+</pre>
     <!--Navigation-->
     <header>
 
