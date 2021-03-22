@@ -190,7 +190,7 @@
 
                                             <!--Card image-->
                                             <div class="view overlay">
-                                                <img src="<?php echo base_url(); ?>tools/image/userblog/img%20(144).jpg" class="card-img-top" alt="">
+                                                <img src="<?php echo base_url() . $data['user_data']->profile_pic; ?>" class="card-img-top" alt="">
                                                 <a>
                                                     <div class="mask rgba-white-slight"></div>
                                                 </a>
@@ -260,7 +260,11 @@
 
                                 <!--Card image-->
                                 <div class="view overlay">
-                                    <img src="<?php echo base_url(); ?>tools/image/userblog/20.jpg" class="card-img-top" alt="">
+                                    <?php if (!empty($data['user_data']->profile_pic)) { ?>
+                                        <img src="<?php echo base_url() . $data['user_data']->profile_pic; ?>" class="card-img-top" alt="">
+                                    <?php } else { ?>
+                                        <img src="<?php echo base_url("uploads\users\avtar.jpg"); ?>" class="card-img-top" alt="">
+                                    <?php } ?>
                                     <a>
                                         <div class="mask rgba-white-slight"></div>
                                     </a>
@@ -271,35 +275,44 @@
                                 <div class="card-body">
                                     <!--Title-->
                                     <h5 class="card-title dark-grey-text text-center grey lighten-4 py-2">
-                                        <strong>Anna Doe</strong>
+                                        <strong> <?php echo $data['user_data']->user_name; ?> </strong>
                                     </h5>
 
                                     <!--Description-->
-                                    <p class="mt-3 dark-grey-text font-small text-center">
-                                        <em>Hello, I'm Anna. I love travel around the world and take photos of landscapes and
-                                            local people.</em>
+                                    <p class="mt-3 dark-grey-text font-small ">
+                                        Profession :<em> <?php echo $data['user_data']->profession; ?> </em><br>
+                                        Moblie : <em><?php echo $data['user_data']->moblie; ?> </em>
                                     </p>
 
-                                    <ul class="list-unstyled list-inline-item circle-icons list-unstyled flex-center">
+                                    <ul class="list-unstyled list-inline-item circle-icons d-flex justify-content-around">
                                         <!--Facebook-->
                                         <li>
-                                            <a class="fb-ic">
+                                            <a href="https://www.facebook.com/<?php echo $data['user_data']->facebook; ?>" target="_blank" >
                                                 <i class="fab fa-facebook-f"> </i>
                                             </a>
                                         </li>
                                         <!--Twitter-->
                                         <li>
-                                            <a class="tw-ic">
-                                                <i class="fab fa-twitter mx-3"> </i>
+                                            <a href="https://twitter.com/<?php echo $data['user_data']->twitter; ?>" target="_blank">
+                                                <i class="fab fa-twitter"> </i>
                                             </a>
                                         </li>
-                                        <!--Google +-->
+                                        <!--Github-->
                                         <li>
-                                            <a class="gplus-ic">
-                                                <i class="fab fa-google-plus-g"> </i>
+                                            <a class="" href="https://github.com/<?php echo $data['user_data']->github; ?>" target="_blank">
+                                                <i class="fab fa-github"> </i>
                                             </a>
                                         </li>
+
+                                        <!--Instagram-->
+                                        <li>
+                                            <a class="" href="https://www.instagram.com/<?php echo $data['user_data']->instagram; ?>" target="_blank">
+                                                <i class="fab fa-instagram"> </i>
+                                            </a>
+                                        </li>
+
                                     </ul>
+                                   
                                 </div>
                                 <!--/.Card content-->
 
