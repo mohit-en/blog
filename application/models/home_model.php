@@ -61,14 +61,18 @@ class home_model extends CI_Model
 
         $limitNumber = ($currentPage - 1) * $display_post_per_page;
 
-        $postData = $this->db->query("SELECT * FROM total_posts where user_id = $user_id LIMIT $limitNumber,$display_post_per_page")->result();
+        $postData = $this->db->query("SELECT * FROM total_posts where user_id = $user_id  order by post_id desc LIMIT $limitNumber,$display_post_per_page")->result();
 
+        $oldPosts = $this->db->query("SELECT post_id,img_path,article_title,date FROM total_posts where user_id = $user_id LIMIT 0,3")->result();
+        $newPosts = $this->db->query("SELECT post_id,img_path,article_title,date FROM total_posts where user_id = $user_id order by post_id desc LIMIT 0,3")->result();
 
         return array(
             'total_pages' => $totalPages,
             'post_data' => $postData,
             'active_page' => $formData['page'],
-            'user_data' => $user_data
+            'user_data' => $user_data,
+            'old_posts' => $oldPosts,
+            'new_posts' => $newPosts
         );
     }
 }

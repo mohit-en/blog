@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>Blog - MDBootstrap</title>
+    <title><?php echo $data['user_data']->user_name ?> blog</title>
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
@@ -140,26 +140,12 @@
                 <!--Excerpt-->
                 <br>
                 <h1 class="text-center dark-grey-text pb-3">
-                    <strong>Haresh'S</strong> BLOG
+                    <strong><?php echo $data['user_data']->user_name; ?>'S</strong> BLOG
                 </h1>
 
                 <p class="grey-text text-center mb-4 text-uppercase spacing">Welcome on my blog. </p>
 
-                <!--Grid row-->
-                <div class="row flex-center">
 
-                    <!--Grid column-->
-                    <div class="col-md-10 col-xl-5">
-
-                        <p class="grey-text text-center">
-                            <em>"Software engineers and developers are often specialists in creating and developing web, mobile, and software applications that perform tasks on specific devices like computers and mobile devices. They also work on networks, databases, and operating systems using a variety of programming languages."</em>
-                        </p>
-
-                    </div>
-                    <!--Grid column-->
-
-                </div>
-                <!--Grid row-->
 
             </div>
         </section>
@@ -183,53 +169,49 @@
                                 <!--Grid row-->
                                 <div class="row mb-4">
 
-                                    <!--Grid column-->
-                                    <div class="col-md-12">
-                                        <!--Card-->
-                                        <div class="card">
+                                    <?php foreach ($data['post_data'] as $post_value) {
+                                    ?>
+                                        <!--Grid column-->
+                                        <div class="col-md-12 mb-5">
+                                            <!--Card-->
+                                            <div class="card">
 
-                                            <!--Card image-->
-                                            <div class="view overlay">
-                                                <img src="<?php echo base_url() . $data['user_data']->profile_pic; ?>" class="card-img-top" alt="">
-                                                <a>
-                                                    <div class="mask rgba-white-slight"></div>
-                                                </a>
-                                            </div>
-                                            <!--/.Card image-->
-
-                                            <!--Card content-->
-                                            <div class="card-body mx-4">
-                                                <!--Title-->
-                                                <h4 class="card-title">
-                                                    <strong>Lorem ipsum dolor sit amet</strong>
-                                                </h4>
-                                                <hr>
-                                                <!--Text-->
-                                                <p class="dark-grey-text mb-3">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                                                    doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
-                                                    veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-                                                <p class="dark-grey-text mb-4"> Disrupt vero ea id fugiat, lo-fi lomo post-ironic irony kitsch Banksy.
-                                                    Tumblr kale stumptown beer elit seitan tote bag Banksy, elit small
-                                                    batch fregan sed.
-                                                </p>
-                                                </p>
-                                                <p class="font-small font-weight-bold blue-grey-text mb-1">
-                                                    <i class="far fa-clock-o"></i> 27/08/2017
-                                                </p>
-                                                <p class="font-small dark-grey-text mb-0 font-weight-bold">Anna Smith</p>
-                                                <p class="text-right mb-0 text-uppercase dark-grey-text font-weight-bold">
-                                                    <a>read more
-                                                        <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                                                <!--Card image-->
+                                                <div class="view overlay">
+                                                    <img src="<?php echo base_url() . $post_value->img_path; ?>" class="card-img-top" alt="">
+                                                    <a>
+                                                        <div class="mask rgba-white-slight"></div>
                                                     </a>
-                                                </p>
+                                                </div>
+                                                <!--/.Card image-->
+
+                                                <!--Card content-->
+                                                <div class="card-body mx-4">
+                                                    <!--Title-->
+                                                    <h4 class="card-title">
+                                                        <strong><?php echo $post_value->article_title; ?></strong>
+                                                    </h4>
+                                                    <hr>
+                                                    <!--Text-->
+                                                    <p class="dark-grey-text mb-3"><?php echo $post_value->short_description; ?>
+                                                    </p>
+                                                    <p class="font-small font-weight-bold blue-grey-text mb-1">
+                                                        <i class="far fa-clock-o"></i> <?php echo $post_value->date; ?>
+                                                    </p>
+                                                    <p class="text-right mb-0 text-uppercase dark-grey-text font-weight-bold">
+                                                        <a href="<?php echo base_url() . 'home/blogpage/' . $post_value->post_id ?>">read more
+                                                            <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                                                        </a>
+                                                    </p>
+                                                </div>
+                                                <!--/.Card content-->
+
                                             </div>
-                                            <!--/.Card content-->
+                                            <!--/.Card-->
 
                                         </div>
-                                        <!--/.Card-->
-
-                                    </div>
-                                    <!--Grid column-->
+                                        <!--Grid column-->
+                                    <?php } ?>
 
                                 </div>
                                 <!--/Grid row-->
@@ -281,13 +263,15 @@
                                     <!--Description-->
                                     <p class="mt-3 dark-grey-text font-small ">
                                         Profession :<em> <?php echo $data['user_data']->profession; ?> </em><br>
-                                        Moblie : <em><?php echo $data['user_data']->moblie; ?> </em>
+                                        Moblie : <em><?php echo $data['user_data']->moblie; ?> </em> <br>
+                                        Website : <a href="<?php echo $data['user_data']->website; ?>" target="_blank"><?php echo $data['user_data']->website; ?></a>
+
                                     </p>
 
                                     <ul class="list-unstyled list-inline-item circle-icons d-flex justify-content-around">
                                         <!--Facebook-->
                                         <li>
-                                            <a href="https://www.facebook.com/<?php echo $data['user_data']->facebook; ?>" target="_blank" >
+                                            <a href="https://www.facebook.com/<?php echo $data['user_data']->facebook; ?>" target="_blank">
                                                 <i class="fab fa-facebook-f"> </i>
                                             </a>
                                         </li>
@@ -312,84 +296,12 @@
                                         </li>
 
                                     </ul>
-                                   
+
                                 </div>
                                 <!--/.Card content-->
 
                             </div>
                             <!--/.Card-->
-
-
-
-
-
-
-
-
-
-                            <!-- Section: Categories -->
-                            <section class="section mb-5 mt-4">
-
-                                <!-- Card -->
-                                <div class="card card-body pb-0">
-                                    <div class="single-post">
-
-                                        <p class="font-weight-bold dark-grey-text text-center spacing grey lighten-4 py-2 mb-4">
-                                            <strong>CATEGORIES</strong>
-                                        </p>
-
-                                        <ul class="list-group my-4">
-                                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                <a class="">
-                                                    <p class="mb-0">Travel</p>
-                                                </a>
-                                                <span class="badge teal badge-pill font-small">4</span>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                <a class="">
-                                                    <p class="mb-0">Lifestyle</p>
-                                                </a>
-                                                <span class="badge teal badge-pill">2</span>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                <a class="">
-                                                    <p class="mb-0">Photography</p>
-                                                </a>
-                                                <span class="badge teal badge-pill">1</span>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                <a class="">
-                                                    <p class="mb-0">Culinary</p>
-                                                </a>
-                                                <span class="badge teal badge-pill">2</span>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                <a class="">
-                                                    <p class="mb-0">Fashion</p>
-                                                </a>
-                                                <span class="badge teal badge-pill">1</span>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                <a class="">
-                                                    <p class="mb-0">Work</p>
-                                                </a>
-                                                <span class="badge teal badge-pill">2</span>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                <a class="">
-                                                    <p class="mb-0">Business</p>
-                                                </a>
-                                                <span class="badge teal badge-pill">5</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-
-                                </div>
-
-                            </section>
-                            <!-- Section: Categories -->
-
-
 
                         </div>
                         <!--Sidebar-->
@@ -426,114 +338,46 @@
                         <div class="col-lg-4 col-md-6">
                             <h6 class="font-weight-bold mt-5 mb-3">LATESTS POSTS</h6>
                             <hr class="mb-5">
-                            <!--Grid row-->
-                            <div class="row mt-4">
 
-                                <!--Grid column-->
-                                <div class="col-4">
 
-                                    <!--Image-->
-                                    <div class="view overlay z-depth-1 mb-3">
-                                        <img src="<?php echo base_url(); ?>tools/image/userblog/photo12.jpg" class="img-fluid" alt="Post">
-                                        <a>
-                                            <div class="mask rgba-white-slight"></div>
-                                        </a>
-                                    </div>
+                            <?php foreach ($data['new_posts'] as $value) { ?>
 
-                                </div>
-                                <!--Grid column-->
+                                <!--Grid row-->
+                                <div style="overflow: hidden;" class="row">
 
-                                <!--Second column-->
-                                <div class="col-8 mb-1">
+                                    <!--Grid column-->
+                                    <div class="col-4">
 
-                                    <!--Post data-->
-                                    <div class="">
-                                        <p class="mb-1">
-                                            <a href="#!" class="text-hover font-weight-bold">Sed ut in perspiciatis unde omnis</a>
-                                        </p>
-                                        <p class="font-small grey-text">
-                                            <em>July 22, 2017</em>
-                                        </p>
-                                    </div>
-
-                                </div>
-                                <!--Second column-->
-
-                            </div>
-                            <!--Grid row-->
-
-                            <!--Grid row-->
-                            <div class="row">
-
-                                <!--Grid column-->
-                                <div class="col-4">
-
-                                    <!--Image-->
-                                    <div class="view overlay z-depth-1 mb-3">
-                                        <img src="<?php echo base_url(); ?>tools/image/userblog/photo11.jpg" class="img-fluid" alt="Post">
-                                        <a>
-                                            <div class="mask rgba-white-slight"></div>
-                                        </a>
-                                    </div>
-
-                                </div>
-                                <!--Grid column-->
-
-                                <!--Second column-->
-                                <div class="col-7 mb-1">
-
-                                    <!--Post data-->
-                                    <div class="">
-                                        <p class="mb-1">
-                                            <a href="#!" class="text-hover font-weight-bold">At vero eos et accusamus et </a>
-                                        </p>
-                                        <p class="font-small grey-text">
-                                            <em>July 22, 2017</em>
-                                        </p>
+                                        <!--Image-->
+                                        <div class="view overlay z-depth-1 mb-3">
+                                            <a href="<?php echo base_url() . 'home/blogpage/' . $value->post_id ?>">
+                                                <img src="<?php echo base_url($value->img_path); ?>" class="img-fluid" alt="Post">
+                                                <div class="mask rgba-white-slight"></div>
+                                            </a>
+                                        </div>
 
                                     </div>
+                                    <!--Grid column-->
 
-                                </div>
-                                <!--Second column-->
+                                    <!--Second column-->
+                                    <div class="col-7 mb-1">
 
-                            </div>
-                            <!--Grid row-->
+                                        <!--Post data-->
+                                        <div class="">
+                                            <p class="mb-1">
+                                                <a href="<?php echo base_url() . 'home/blogpage/' . $value->post_id ?>" class="text-hover font-weight-bold"> <?php echo $value->article_title; ?> </a>
+                                            </p>
+                                            <p class="font-small grey-text">
+                                                <em><?php echo $value->date; ?></em>
+                                            </p>
+                                        </div>
 
-                            <!--Grid row-->
-                            <div class="row">
-
-                                <!--Grid column-->
-                                <div class="col-4">
-
-                                    <!--Image-->
-                                    <div class="view overlay z-depth-1 mb-3">
-                                        <img src="<?php echo base_url(); ?>tools/image/userblog/photo15.jpg" class="img-fluid" alt="Post">
-                                        <a>
-                                            <div class="mask rgba-white-slight"></div>
-                                        </a>
                                     </div>
+                                    <!--Second column-->
 
                                 </div>
-                                <!--Grid column-->
-
-                                <!--Second column-->
-                                <div class="col-7 mb-1">
-
-                                    <!--Post data-->
-                                    <div class="">
-                                        <p class="mb-1">
-                                            <a href="#!" class="text-hover font-weight-bold">Nemo enim ipsam voluptatem</a>
-                                        </p>
-                                        <p class="font-small grey-text">
-                                            <em>July 22, 2017</em>
-                                        </p>
-                                    </div>
-
-                                </div>
-                                <!--Second column-->
-
-                            </div>
-                            <!--Grid row-->
+                                <!--Grid row-->
+                            <?php } ?>
 
                         </div>
                         <!--Grid column-->
@@ -543,113 +387,44 @@
                             <h6 class="font-weight-bold mt-5 mb-3">OLDER POSTS</h6>
                             <hr class="mb-5">
 
-                            <!--Grid row-->
-                            <div class="row mt-4">
+                            <?php foreach ($data['old_posts'] as $value) { ?>
 
-                                <!--Grid column-->
-                                <div class="col-4">
+                                <!--Grid row-->
+                                <div style="overflow: hidden;" class="row">
 
-                                    <!--Image-->
-                                    <div class="view overlay z-depth-1 mb-3">
-                                        <img src="<?php echo base_url(); ?>tools/image/userblog/photo1.jpg" class="img-fluid" alt="Post">
-                                        <a>
-                                            <div class="mask rgba-white-slight"></div>
-                                        </a>
+                                    <!--Grid column-->
+                                    <div class="col-4">
+
+                                        <!--Image-->
+                                        <div class="view overlay z-depth-1 mb-3">
+                                            <a href="<?php echo base_url() . 'home/blogpage/' . $value->post_id ?>">
+                                                <img src="<?php echo base_url($value->img_path); ?>" class="img-fluid" alt="Post">
+                                                <div class="mask rgba-white-slight"></div>
+                                            </a>
+                                        </div>
+
                                     </div>
+                                    <!--Grid column-->
+
+                                    <!--Second column-->
+                                    <div class="col-7 mb-1">
+
+                                        <!--Post data-->
+                                        <div class="">
+                                            <p class="mb-1">
+                                                <a href="<?php echo base_url() . 'home/blogpage/' . $value->post_id ?>" class="text-hover font-weight-bold"> <?php echo $value->article_title; ?> </a>
+                                            </p>
+                                            <p class="font-small grey-text">
+                                                <em><?php echo $value->date; ?></em>
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                    <!--Second column-->
 
                                 </div>
-                                <!--Grid column-->
-
-                                <!--Second column-->
-                                <div class="col-8 mb-1">
-
-                                    <!--Post data-->
-                                    <div class="">
-                                        <p class="mb-1">
-                                            <a href="#!" class="text-hover font-weight-bold">Sed ut in perspiciatis unde omnis</a>
-                                        </p>
-                                        <p class="font-small grey-text">
-                                            <em>July 22, 2017</em>
-                                        </p>
-                                    </div>
-
-                                </div>
-                                <!--Second column-->
-
-                            </div>
-                            <!--Grid row-->
-
-                            <!--Grid row-->
-                            <div class="row">
-
-                                <!--Grid column-->
-                                <div class="col-4">
-
-                                    <!--Image-->
-                                    <div class="view overlay z-depth-1 mb-3">
-                                        <img src="<?php echo base_url(); ?>tools/image/userblog/photo9.jpg" class="img-fluid" alt="Post">
-                                        <a>
-                                            <div class="mask rgba-white-slight"></div>
-                                        </a>
-                                    </div>
-
-                                </div>
-                                <!--Grid column-->
-
-                                <!--Second column-->
-                                <div class="col-7 mb-1">
-
-                                    <!--Post data-->
-                                    <div class="">
-                                        <p class="mb-1">
-                                            <a href="#!" class="text-hover font-weight-bold">At vero eos et accusamus et </a>
-                                        </p>
-                                        <p class="font-small grey-text">
-                                            <em>July 22, 2017</em>
-                                        </p>
-                                    </div>
-
-                                </div>
-                                <!--Second column-->
-
-                            </div>
-                            <!--Grid row-->
-
-                            <!--Grid row-->
-                            <div class="row">
-
-                                <!--Grid column-->
-                                <div class="col-4">
-
-                                    <!--Image-->
-                                    <div class="view overlay z-depth-1 mb-3">
-                                        <img src="<?php echo base_url(); ?>tools/image/userblog/photo4.jpg" class="img-fluid" alt="Post">
-                                        <a>
-                                            <div class="mask rgba-white-slight"></div>
-                                        </a>
-                                    </div>
-
-                                </div>
-                                <!--Grid column-->
-
-                                <!--Second column-->
-                                <div class="col-7 mb-1">
-
-                                    <!--Post data-->
-                                    <div class="">
-                                        <p class="mb-1">
-                                            <a href="#!" class="text-hover font-weight-bold">Nemo enim ipsam voluptatem</a>
-                                        </p>
-                                        <p class="font-small grey-text">
-                                            <em>July 22, 2017</em>
-                                        </p>
-                                    </div>
-
-                                </div>
-                                <!--Second column-->
-
-                            </div>
-                            <!--Grid row-->
+                                <!--Grid row-->
+                            <?php } ?>
 
                         </div>
                         <!--Grid column-->
@@ -681,28 +456,28 @@
                     <div class="footer-socials mb-5 flex-center">
 
                         <!--Facebook-->
-                        <a class="fb-ic">
+                        <a href="https://www.facebook.com/mohit.mistry.148/" class="fb-ic" target="_blank">
                             <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-lg"> </i>
                         </a>
                         <!--Twitter-->
-                        <a class="tw-ic">
+                        <a href="https://twitter.com/elonmusk" class="tw-ic" target="_blank">
                             <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-lg"> </i>
                         </a>
-                        <!--Google +-->
-                        <a class="gplus-ic">
-                            <i class="fab fa-google-plus-g fa-lg white-text mr-md-5 mr-3 fa-lg"> </i>
+                        <!--Github +-->
+                        <a href="https://github.com/code-diggers-369" class="gplus-ic" target="_blank">
+                            <i class="fab fa-github fa-lg white-text mr-md-5 mr-3 fa-lg"> </i>
                         </a>
                         <!--Linkedin-->
-                        <a class="li-ic">
+                        <a href="https://www.linkedin.com/in/haresh-prajapati-76271b1a1" class="li-ic" target="_blank">
                             <i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-lg"> </i>
                         </a>
                         <!--Instagram-->
-                        <a class="ins-ic">
+                        <a href="https://www.instagram.com/code.diggers/" class="ins-ic" target="_blank">
                             <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-lg"> </i>
                         </a>
                         <!--Pinterest-->
-                        <a class="pin-ic">
-                            <i class="fab fa-pinterest fa-lg white-text fa-lg"> </i>
+                        <a href="https://www.youtube.com/channel/UCcbZ7AmY35Kps985i5UIIKA" target="_blank" class="pin-ic">
+                            <i class="fab fa-youtube fa-lg white-text fa-lg"> </i>
                         </a>
                     </div>
                 </div>

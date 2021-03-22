@@ -84,6 +84,8 @@ class co_admin extends CI_Controller
 			'moblie' => $this->input->post('moblie'),
 			'phone' => $this->input->post('phone')
 		);
+
+		
 		if (!preg_match("/^[a-zA-Z0-9_]+$/", $data['user_name'])) {
 			echo "<script> alert('Plz enter valid username'); 
 			window.history.back();

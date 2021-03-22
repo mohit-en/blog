@@ -42,7 +42,6 @@ class home extends CI_Controller
     }
     public function blogpage($id)
     {
-
         $formData['id'] = $id;
 
         $data['post_data'] = $this->home_model->getPostsData($formData);
