@@ -23,11 +23,15 @@ class home_model extends CI_Model
 
         $postData = $this->db->query("SELECT tp.*,ul.user_name as creater FROM total_posts as tp left join user_list as ul on tp.user_id = ul.user_id order by tp.post_id desc LIMIT $limitNumber,$display_post_per_page ")->result();
 
+        $oldPosts = $this->db->query("SELECT post_id,img_path,article_title,date FROM total_posts  LIMIT 0,3")->result();
+        $newPosts = $this->db->query("SELECT post_id,img_path,article_title,date FROM total_posts  order by post_id desc LIMIT 0,3")->result();
 
         return array(
             'total_pages' => $totalPages,
             'post_data' => $postData,
-            'active_page' => $formData['page']
+            'active_page' => $formData['page'],
+            'old_posts' => $oldPosts,
+            'new_posts' => $newPosts
         );
         // $data = $this->db->query("SELECT * FROM total_posts")->result();
 
