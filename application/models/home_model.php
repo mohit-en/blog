@@ -21,7 +21,7 @@ class home_model extends CI_Model
 
         $limitNumber = ($currentPage - 1) * $display_post_per_page;
 
-        $postData = $this->db->query("SELECT tp.*,ul.user_name as creater FROM total_posts as tp left join user_list as ul on tp.user_id = ul.user_id LIMIT $limitNumber,$display_post_per_page")->result();
+        $postData = $this->db->query("SELECT tp.*,ul.user_name as creater FROM total_posts as tp left join user_list as ul on tp.user_id = ul.user_id order by tp.post_id desc LIMIT $limitNumber,$display_post_per_page ")->result();
 
 
         return array(

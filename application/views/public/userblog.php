@@ -20,8 +20,8 @@
 </head>
 
 <body class="homepage-v1 hidden-sn animated">
-    <pre><?php print_r($data); ?>
-</pre>
+    <!-- <pre><?php// print_r($data); ?> 
+</pre>-->
     <!--Navigation-->
     <header>
 
@@ -178,8 +178,8 @@
 
                                                 <!--Card image-->
                                                 <div class="view overlay">
-                                                    <img src="<?php echo base_url() . $post_value->img_path; ?>" class="card-img-top" alt="">
-                                                    <a>
+                                                    <a href="<?php echo base_url() . 'home/blogpage/' . $post_value->post_id ?>">
+                                                        <img src="<?php echo base_url() . $post_value->img_path; ?>" class="card-img-top" alt="">
                                                         <div class="mask rgba-white-slight"></div>
                                                     </a>
                                                 </div>

@@ -226,8 +226,7 @@
                 <!--Section heading-->
                 <h2 class="text-center h2 my-5 pt-4">Recent posts</h2>
                 <!--Section description-->
-                <p class="text-center dark-grey-text w-responsive mx-auto mb-5">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                    sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p class="text-center dark-grey-text w-responsive mx-auto mb-5">Knowladge is wealth. By the use of proper knolawdge you can do anything that you want. we are trying to share over knowladge for making good skilled social Human.</p>
 
                 <!--Grid row-->
                 <div class="row text-center mb-2">
@@ -238,12 +237,17 @@
                         <!-- custom card -->
                         <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
                             <div class="card card-small card-post card-post--1" style="height: 100%;">
-                                <div class="card-post__image" style="background-image: url('<?php echo $img_path ?>');">
-                                    <!-- <a href="#" class="card-post__category badge badge-pill badge-info">Travel</a>
-                                <div class="card-post__author d-flex mt-2 mb-2">
+                                <a href="<?php echo base_url() . 'home/blogpage/' . $row->post_id ?>">
+                                    <div class="card-post__image" style="background-image: url('<?php echo $img_path ?>');">
+
+
+                                        <!-- <a href="#" class="card-post__category badge badge-pill badge-info">Travel</a>
+                                 <div class="card-post__author d-flex mt-2 mb-2">
                                     <a href="#" class="card-post__author-avatar card-post__author-avatar--small" style="background-image: url('https://designrevision.com/demo/shards-dashboard-lite/images/avatars/1.jpg');">Written by James Jamerson</a>
-                                </div> -->
-                                </div>
+                                    </div> -->
+                                    </div>
+                                </a>
+
                                 <div class="card-body">
                                     <h5 class="card-title mt-2">
                                         <a class="text-fiord-blue" href="<?php echo base_url() . 'home/blogpage/' . $row->post_id ?>"><?php echo $row->article_title ?></a>
@@ -645,23 +649,23 @@
                     <div class="social-section text-center text-md-left">
                         <ul class="list-unstyled list-inline">
                             <li class="list-inline-item mx-0">
-                                <a class="btn-floating btn-sm rgba-white-slight mr-xl-4">
+                                <a href="https://www.facebook.com/mohit.mistry.148/" target="_blank" class="btn-floating btn-sm rgba-white-slight mr-xl-4">
                                     <i class="fab fa-facebook-f"></i>
                                 </a>
                             </li>
                             <li class="list-inline-item mx-0">
-                                <a class="btn-floating btn-sm rgba-white-slight mr-xl-4">
+                                <a href="https://twitter.com/elonmusk" target="_blank" class="btn-floating btn-sm rgba-white-slight mr-xl-4">
                                     <i class="fab fa-twitter"></i>
                                 </a>
                             </li>
                             <li class="list-inline-item mx-0">
-                                <a class="btn-floating btn-sm rgba-white-slight mr-xl-4">
-                                    <i class="fab fa-google-plus-g"></i>
+                                <a href="https://www.instagram.com/code.diggers/" target="_blank" class="btn-floating btn-sm rgba-white-slight mr-xl-4">
+                                    <i class="fab fa-instagram"></i>
                                 </a>
                             </li>
                             <li class="list-inline-item mx-0">
-                                <a class="btn-floating btn-sm rgba-white-slight mr-xl-4">
-                                    <i class="fab fa-linkedin-in"></i>
+                                <a href="https://www.youtube.com/channel/UCcbZ7AmY35Kps985i5UIIKA" target="_blank" class="btn-floating btn-sm rgba-white-slight mr-xl-4">
+                                    <i class="fab fa-youtube"></i>
                                 </a>
                             </li>
                         </ul>
