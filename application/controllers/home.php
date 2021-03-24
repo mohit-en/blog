@@ -46,6 +46,10 @@ class home extends CI_Controller
 
         $data['post_data'] = $this->home_model->getPostsData($formData);
 
+        // echo "<pre>";
+        //     print_r($data);
+        // echo "</pre>";
+        // exit;
         // print_r($data['post_data']->article_title);
         $this->load->view('public/blogpage', $data);
     }

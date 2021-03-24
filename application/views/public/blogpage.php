@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title><?php echo $post_data->article_title; ?></title>
+    <title><?php echo $post_data[0]->article_title; ?></title>
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
@@ -31,6 +31,8 @@
 </head>
 
 <body class="postpage-v3">
+    <!-- <pre><?php //print_r($post_data) 
+                ?></pre> -->
 
     <!--Main Navigation-->
     <header>
@@ -139,7 +141,7 @@
 
         <section>
             <div class="cover-img-container">
-                <img class="cover-img" src="<?php echo base_url() . $post_data->img_path; ?>">
+                <img class="cover-img" src="<?php echo base_url() . $post_data[0]->img_path; ?>">
             </div>
         </section>
 
@@ -165,16 +167,16 @@
                                 <!--Section heading-->
                                 <h1 class="text-center h1 pt-4 mb-3">
 
-                                    <strong><?php echo $post_data->article_title; ?></strong>
+                                    <strong><?php echo $post_data[0]->article_title; ?></strong>
                                 </h1>
 
                                 <div class="row">
                                     <div class="col-md-12 col-xl-12 d-flex justify-content-center">
                                         <p class="font-small dark-grey-text mb-1">
-                                            <strong>Author:</strong> <?php echo $post_data->creater; ?>
+                                            <strong>Author:</strong> <?php echo $post_data[0]->creater; ?>
                                         </p>
                                         <p class="font-small grey-text mb-0 ml-3">
-                                            <i class="far fa-clock-o dark-grey-text"></i> <?php echo $post_data->date; ?>
+                                            <i class="far fa-clock-o dark-grey-text"></i> <?php echo $post_data[0]->date; ?>
                                         </p>
                                     </div>
                                 </div>
@@ -188,7 +190,7 @@
 
                                             <!--Grid row-->
                                             <div class="row mt-3">
-                                                <?php echo $post_data->article; ?>
+                                                <?php echo $post_data[0]->article; ?>
 
                                                 <!-- <p class="dark-grey-text article">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                                     incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -233,7 +235,8 @@
                                                 <!--Grid column-->
                                                 <!-- <div class="col-md-4 mb-2">
                                                     <div class="view zoom z-depth-1">
-                                                        <img src="<?php echo base_url(); ?>tools/image/blogpage/img (28).jpg" class="img-fluid rounded-0" alt="sample-image">
+                                                        <img src="<?php //echo base_url(); 
+                                                                    ?>tools/image/blogpage/img (28).jpg" class="img-fluid rounded-0" alt="sample-image">
                                                         <div class="mask flex-center">
 
                                                         </div>
@@ -244,7 +247,8 @@
                                                 <!--Grid column-->
                                                 <!-- <div class="col-md-4 mb-2">
                                                     <div class="view zoom z-depth-1">
-                                                        <img src="<?php echo base_url(); ?>tools/image/blogpage/img (41).jpg" class="img-fluid rounded-0 z-depth-1" alt="sample-image">
+                                                        <img src="<?php //echo base_url(); 
+                                                                    ?>tools/image/blogpage/img (41).jpg" class="img-fluid rounded-0 z-depth-1" alt="sample-image">
                                                         <div class="mask flex-center">
 
                                                         </div>
@@ -256,7 +260,8 @@
                                                 <!--Grid column-->
                                                 <!-- <div class="col-md-4">
                                                     <div class="view zoom z-depth-1">
-                                                        <img src="<?php echo base_url(); ?>tools/image/blogpage/13.jpg" class="img-fluid rounded-0 z-depth-1" alt="sample-image">
+                                                        <img src="<?php //echo base_url(); 
+                                                                    ?>tools/image/blogpage/13.jpg" class="img-fluid rounded-0 z-depth-1" alt="sample-image">
                                                         <div class="mask flex-center">
 
                                                         </div>
@@ -350,7 +355,6 @@
                                                     <ol class="carousel-indicators">
                                                         <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
                                                         <li data-target="#multi-item-example" data-slide-to="1"></li>
-                                                        <li data-target="#multi-item-example" data-slide-to="2"></li>
                                                     </ol>
                                                     <!--/.Indicators-->
 
@@ -363,126 +367,51 @@
                                                             <!--Grid row-->
                                                             <div class="row mb-4 mx-1">
 
-                                                                <!--Grid column-->
-                                                                <div class="col-lg-4 my-3">
-                                                                    <!--Card-->
-                                                                    <div class="card">
+                                                                <?php for ($i = 0; $i < 3; $i++) {
+                                                                ?>
+                                                                    <!--Grid column-->
+                                                                    <div class="col-lg-4 my-3">
+                                                                        <!--Card-->
+                                                                        <div class="card" style="height: 100%;">
 
-                                                                        <!--Card image-->
-                                                                        <div class="view overlay">
-                                                                            <img src="<?php echo base_url(); ?>tools/image/blogpage/img(40).jpg" class="card-img-top" alt="sample image">
-                                                                            <a>
-                                                                                <div class="mask rgba-white-slight"></div>
-                                                                            </a>
-                                                                        </div>
-                                                                        <!--/.Card image-->
-
-                                                                        <!--Card content-->
-                                                                        <div class="card-body">
-                                                                            <!--Title-->
-                                                                            <h4 class="card-title">
-                                                                                <strong>Card title</strong>
-                                                                            </h4>
-                                                                            <hr>
-
-                                                                            </p>
-                                                                            <p class="font-small font-weight-bold dark-grey-text mb-1">
-                                                                                <i class="far fa-clock-o"></i> 27/08/2017
-                                                                            </p>
-                                                                            <p class="font-small grey-text mb-0">Anna Smith</p>
-                                                                            <p class="text-right mb-0 font-small font-weight-bold">
-                                                                                <a>read more
-                                                                                    <i class="fas fa-angle-right"></i>
+                                                                            <!--Card image-->
+                                                                            <div class="view overlay">
+                                                                                <a href="<?php echo base_url() . 'home/blogpage/' . $post_data[1][$i]->post_id ?>">
+                                                                                    <img style=" height:200px" src="<?php echo base_url($post_data[1][$i]->img_path); ?>" class="card-img-top" alt="sample image">
+                                                                                    <div class="mask rgba-white-slight"></div>
                                                                                 </a>
-                                                                            </p>
+                                                                            </div>
+                                                                            <!--/.Card image-->
+
+                                                                            <!--Card content-->
+                                                                            <div class="card-body">
+                                                                                <!--Title-->
+                                                                                <h4 class="card-title">
+                                                                                    <strong><?php echo $post_data[1][$i]->article_title; ?></strong>
+                                                                                </h4>
+                                                                                <hr>
+
+
+                                                                                <p class="font-small font-weight-bold dark-grey-text mb-1">
+                                                                                    <i class="far fa-clock-o"></i> <?php echo $post_data[1][$i]->date; ?>
+                                                                                </p>
+                                                                                <p class="font-small grey-text mb-0"><?php echo $post_data[1][$i]->user_name; ?></p>
+                                                                                <p class="text-right mb-0 font-small font-weight-bold">
+                                                                                    <a href="<?php echo base_url() . 'home/blogpage/' . $post_data[1][$i]->post_id ?>">
+                                                                                        read more
+                                                                                        <i class="fas fa-angle-right"></i>
+                                                                                    </a>
+                                                                                </p>
+                                                                            </div>
+                                                                            <!--/.Card content-->
+
                                                                         </div>
-                                                                        <!--/.Card content-->
+                                                                        <!--/.Card-->
 
                                                                     </div>
-                                                                    <!--/.Card-->
+                                                                    <!--Grid column-->
+                                                                <?php } ?>
 
-                                                                </div>
-                                                                <!--Grid column-->
-
-                                                                <!--Grid column-->
-                                                                <div class="col-lg-4 text-left mt-3">
-
-                                                                    <!--Card-->
-                                                                    <div class="card">
-
-                                                                        <!--Card image-->
-                                                                        <div class="view overlay">
-                                                                            <img src="<?php echo base_url(); ?>tools/image/blogpage/img(45).jpg" class="card-img-top" alt="sample image">
-                                                                            <a>
-                                                                                <div class="mask rgba-white-slight"></div>
-                                                                            </a>
-                                                                        </div>
-                                                                        <!--/.Card image-->
-
-                                                                        <!--Card content-->
-                                                                        <div class="card-body">
-                                                                            <!--Title-->
-                                                                            <h4 class="card-title">
-                                                                                <strong>Card title</strong>
-                                                                            </h4>
-                                                                            <hr>
-
-                                                                            <p class="font-small font-weight-bold dark-grey-text mb-1">
-                                                                                <i class="far fa-clock-o"></i> 27/08/2017
-                                                                            </p>
-                                                                            <p class="font-small grey-text mb-0">Anna Smith</p>
-                                                                            <p class="text-right mb-0 font-small font-weight-bold">
-                                                                                <a>read more
-                                                                                    <i class="fas fa-angle-right"></i>
-                                                                                </a>
-                                                                            </p>
-                                                                        </div>
-                                                                        <!--/.Card content-->
-
-                                                                    </div>
-                                                                    <!--/.Card-->
-                                                                </div>
-                                                                <!--Grid column-->
-
-                                                                <!--Grid column-->
-                                                                <div class="col-lg-4 text-left mt-3">
-
-                                                                    <!--Card-->
-                                                                    <div class="card">
-
-                                                                        <!--Card image-->
-                                                                        <div class="view overlay">
-                                                                            <img src="<?php echo base_url(); ?>tools/image/blogpage/img (35).jpg" class="card-img-top" alt="sample image">
-                                                                            <a>
-                                                                                <div class="mask rgba-white-slight"></div>
-                                                                            </a>
-                                                                        </div>
-                                                                        <!--/.Card image-->
-
-                                                                        <!--Card content-->
-                                                                        <div class="card-body">
-                                                                            <!--Title-->
-                                                                            <h4 class="card-title">
-                                                                                <strong>Card title</strong>
-                                                                            </h4>
-                                                                            <hr>
-
-                                                                            <p class="font-small font-weight-bold dark-grey-text mb-1">
-                                                                                <i class="far fa-clock-o"></i> 27/08/2017
-                                                                            </p>
-                                                                            <p class="font-small grey-text mb-0">Anna Smith</p>
-                                                                            <p class="text-right mb-0 font-small font-weight-bold">
-                                                                                <a>read more
-                                                                                    <i class="fas fa-angle-right"></i>
-                                                                                </a>
-                                                                            </p>
-                                                                        </div>
-                                                                        <!--/.Card content-->
-
-                                                                    </div>
-                                                                    <!--/.Card-->
-                                                                </div>
-                                                                <!--Grid column-->
 
                                                             </div>
                                                             <!--/Grid row-->
@@ -495,264 +424,58 @@
 
                                                             <!--Grid row-->
                                                             <div class="row mb-4 mx-1">
+                                                                <?php for ($i = 3; $i < 6; $i++) {
+                                                                ?>
+                                                                    <!--Grid column-->
+                                                                    <div class="col-lg-4 my-3">
+                                                                        <!--Card-->
+                                                                        <div class="card" style="height: 100%;">
 
-                                                                <!--Grid column-->
-                                                                <div class="col-lg-4 my-3">
-                                                                    <!--Card-->
-                                                                    <div class="card">
-
-                                                                        <!--Card image-->
-                                                                        <div class="view overlay">
-                                                                            <img src="<?php echo base_url(); ?>tools/image/blogpage/img (43).jpg" class="card-img-top" alt="sample image">
-                                                                            <a>
-                                                                                <div class="mask rgba-white-slight"></div>
-                                                                            </a>
-                                                                        </div>
-                                                                        <!--/.Card image-->
-
-                                                                        <!--Card content-->
-                                                                        <div class="card-body">
-                                                                            <!--Title-->
-                                                                            <h4 class="card-title">
-                                                                                <strong>Card title</strong>
-                                                                            </h4>
-                                                                            <hr>
-
-                                                                            </p>
-                                                                            <p class="font-small font-weight-bold dark-grey-text mb-1">
-                                                                                <i class="far fa-clock-o"></i> 27/08/2017
-                                                                            </p>
-                                                                            <p class="font-small grey-text mb-0">Anna Smith</p>
-                                                                            <p class="text-right mb-0 font-small font-weight-bold">
-                                                                                <a>read more
-                                                                                    <i class="fas fa-angle-right"></i>
+                                                                            <!--Card image-->
+                                                                            <div class="view overlay">
+                                                                                <a href="<?php echo base_url() . 'home/blogpage/' . $post_data[1][$i]->post_id ?>">
+                                                                                    <img style="height: 200px;" src="<?php echo base_url($post_data[1][$i]->img_path); ?>" class="card-img-top" alt="sample image">
+                                                                                    <div class="mask rgba-white-slight"></div>
                                                                                 </a>
-                                                                            </p>
+                                                                            </div>
+                                                                            <!--/.Card image-->
+
+                                                                            <!--Card content-->
+                                                                            <div class="card-body">
+                                                                                <!--Title-->
+                                                                                <h4 class="card-title">
+                                                                                    <strong><?php echo $post_data[1][$i]->article_title; ?></strong>
+                                                                                </h4>
+                                                                                <hr>
+
+                                                                                </p>
+                                                                                <p class="font-small font-weight-bold dark-grey-text mb-1">
+                                                                                    <i class="far fa-clock-o"></i> <?php echo $post_data[1][$i]->date; ?>
+                                                                                </p>
+                                                                                <p class="font-small grey-text mb-0"><?php echo $post_data[1][$i]->user_name; ?></p>
+                                                                                <p class="text-right mb-0 font-small font-weight-bold">
+                                                                                    <a href="<?php echo base_url() . 'home/blogpage/' . $post_data[1][$i]->post_id ?>">
+                                                                                        read more
+                                                                                        <i class="fas fa-angle-right"></i>
+                                                                                    </a>
+                                                                                </p>
+                                                                            </div>
+                                                                            <!--/.Card content-->
+
                                                                         </div>
-                                                                        <!--/.Card content-->
+                                                                        <!--/.Card-->
 
                                                                     </div>
-                                                                    <!--/.Card-->
+                                                                    <!--Grid column-->
+                                                                <?php } ?>
 
-                                                                </div>
-                                                                <!--Grid column-->
-
-                                                                <!--Grid column-->
-                                                                <div class="col-lg-4 text-left mt-3">
-
-                                                                    <!--Card-->
-                                                                    <div class="card">
-
-                                                                        <!--Card image-->
-                                                                        <div class="view overlay">
-                                                                            <img src="<?php echo base_url(); ?>tools/image/blogpage/img (39).jpg" class="card-img-top" alt="sample image">
-                                                                            <a>
-                                                                                <div class="mask rgba-white-slight"></div>
-                                                                            </a>
-                                                                        </div>
-                                                                        <!--/.Card image-->
-
-                                                                        <!--Card content-->
-                                                                        <div class="card-body">
-                                                                            <!--Title-->
-                                                                            <h4 class="card-title">
-                                                                                <strong>Card title</strong>
-                                                                            </h4>
-                                                                            <hr>
-
-                                                                            <p class="font-small font-weight-bold dark-grey-text mb-1">
-                                                                                <i class="far fa-clock-o"></i> 27/08/2017
-                                                                            </p>
-                                                                            <p class="font-small grey-text mb-0">Anna Smith</p>
-                                                                            <p class="text-right mb-0 font-small font-weight-bold">
-                                                                                <a>read more
-                                                                                    <i class="fas fa-angle-right"></i>
-                                                                                </a>
-                                                                            </p>
-                                                                        </div>
-                                                                        <!--/.Card content-->
-
-                                                                    </div>
-                                                                    <!--/.Card-->
-                                                                </div>
-                                                                <!--Grid column-->
-
-                                                                <!--Grid column-->
-                                                                <div class="col-lg-4 text-left mt-3">
-
-                                                                    <!--Card-->
-                                                                    <div class="card">
-
-                                                                        <!--Card image-->
-                                                                        <div class="view overlay">
-                                                                            <img src="<?php echo base_url(); ?>tools/image/blogpage/img (46).jpg" class="card-img-top" alt="sample image">
-                                                                            <a>
-                                                                                <div class="mask rgba-white-slight"></div>
-                                                                            </a>
-                                                                        </div>
-                                                                        <!--/.Card image-->
-
-                                                                        <!--Card content-->
-                                                                        <div class="card-body">
-                                                                            <!--Title-->
-                                                                            <h4 class="card-title">
-                                                                                <strong>Card title</strong>
-                                                                            </h4>
-                                                                            <hr>
-
-                                                                            <p class="font-small font-weight-bold dark-grey-text mb-1">
-                                                                                <i class="far fa-clock-o"></i> 27/08/2017
-                                                                            </p>
-                                                                            <p class="font-small grey-text mb-0">Anna Smith</p>
-                                                                            <p class="text-right mb-0 font-small font-weight-bold">
-                                                                                <a>read more
-                                                                                    <i class="fas fa-angle-right"></i>
-                                                                                </a>
-                                                                            </p>
-                                                                        </div>
-                                                                        <!--/.Card content-->
-
-                                                                    </div>
-                                                                    <!--/.Card-->
-                                                                </div>
-                                                                <!--Grid column-->
 
                                                             </div>
                                                             <!--/Grid row-->
                                                         </div>
                                                         <!--/.Second slide-->
 
-                                                        <!--Third slide-->
-                                                        <div class="carousel-item">
 
-                                                            <!--Grid row-->
-                                                            <div class="row mb-4 mx-1">
-
-                                                                <!--Grid column-->
-                                                                <div class="col-lg-4 my-3">
-                                                                    <!--Card-->
-                                                                    <div class="card">
-
-                                                                        <!--Card image-->
-                                                                        <div class="view overlay">
-                                                                            <img src="<?php echo base_url(); ?>tools/image/blogpage/img (30)1.jpg" class="card-img-top" alt="sample image">
-                                                                            <a>
-                                                                                <div class="mask rgba-white-slight"></div>
-                                                                            </a>
-                                                                        </div>
-                                                                        <!--/.Card image-->
-
-                                                                        <!--Card content-->
-                                                                        <div class="card-body">
-                                                                            <!--Title-->
-                                                                            <h4 class="card-title">
-                                                                                <strong>Card title</strong>
-                                                                            </h4>
-                                                                            <hr>
-
-                                                                            </p>
-                                                                            <p class="font-small font-weight-bold dark-grey-text mb-1">
-                                                                                <i class="far fa-clock-o"></i> 27/08/2017
-                                                                            </p>
-                                                                            <p class="font-small grey-text mb-0">Anna Smith</p>
-                                                                            <p class="text-right mb-0 font-small font-weight-bold">
-                                                                                <a>read more
-                                                                                    <i class="fas fa-angle-right"></i>
-                                                                                </a>
-                                                                            </p>
-                                                                        </div>
-                                                                        <!--/.Card content-->
-
-                                                                    </div>
-                                                                    <!--/.Card-->
-
-                                                                </div>
-                                                                <!--Grid column-->
-
-                                                                <!--Grid column-->
-                                                                <div class="col-lg-4 text-left mt-3">
-
-                                                                    <!--Card-->
-                                                                    <div class="card">
-
-                                                                        <!--Card image-->
-                                                                        <div class="view overlay">
-                                                                            <img src="<?php echo base_url(); ?>tools/image/blogpage/img (28)2.jpg" class="card-img-top" alt="sample image">
-                                                                            <a>
-                                                                                <div class="mask rgba-white-slight"></div>
-                                                                            </a>
-                                                                        </div>
-                                                                        <!--/.Card image-->
-
-                                                                        <!--Card content-->
-                                                                        <div class="card-body">
-                                                                            <!--Title-->
-                                                                            <h4 class="card-title">
-                                                                                <strong>Card title</strong>
-                                                                            </h4>
-                                                                            <hr>
-
-                                                                            <p class="font-small font-weight-bold dark-grey-text mb-1">
-                                                                                <i class="far fa-clock-o"></i> 27/08/2017
-                                                                            </p>
-                                                                            <p class="font-small grey-text mb-0">Anna Smith</p>
-                                                                            <p class="text-right mb-0 font-small font-weight-bold">
-                                                                                <a>read more
-                                                                                    <i class="fas fa-angle-right"></i>
-                                                                                </a>
-                                                                            </p>
-                                                                        </div>
-                                                                        <!--/.Card content-->
-
-                                                                    </div>
-                                                                    <!--/.Card-->
-                                                                </div>
-                                                                <!--Grid column-->
-
-                                                                <!--Grid column-->
-                                                                <div class="col-lg-4 text-left mt-3">
-
-                                                                    <!--Card-->
-                                                                    <div class="card">
-
-                                                                        <!--Card image-->
-                                                                        <div class="view overlay">
-                                                                            <img src="<?php echo base_url(); ?>tools/image/blogpage/img (33).jpg" class="card-img-top" alt="sample image">
-                                                                            <a>
-                                                                                <div class="mask rgba-white-slight"></div>
-                                                                            </a>
-                                                                        </div>
-                                                                        <!--/.Card image-->
-
-                                                                        <!--Card content-->
-                                                                        <div class="card-body">
-                                                                            <!--Title-->
-                                                                            <h4 class="card-title">
-                                                                                <strong>Card title</strong>
-                                                                            </h4>
-                                                                            <hr>
-
-                                                                            <p class="font-small font-weight-bold dark-grey-text mb-1">
-                                                                                <i class="far fa-clock-o"></i> 27/08/2017
-                                                                            </p>
-                                                                            <p class="font-small grey-text mb-0">Anna Smith</p>
-                                                                            <p class="text-right mb-0 font-small font-weight-bold">
-                                                                                <a>read more
-                                                                                    <i class="fas fa-angle-right"></i>
-                                                                                </a>
-                                                                            </p>
-                                                                        </div>
-                                                                        <!--/.Card content-->
-
-                                                                    </div>
-                                                                    <!--/.Card-->
-                                                                </div>
-                                                                <!--Grid column-->
-
-                                                            </div>
-                                                            <!--/Grid row-->
-                                                        </div>
-                                                        <!--/.Third slide-->
 
                                                     </div>
                                                     <!--/.Slides-->
@@ -802,28 +525,28 @@
                     <div class="footer-socials mb-5 flex-center">
 
                         <!--Facebook-->
-                        <a class="fb-ic">
+                        <a href="https://www.facebook.com/mohit.mistry.148/" target="_blank" class="fb-ic">
                             <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-lg"> </i>
                         </a>
                         <!--Twitter-->
-                        <a class="tw-ic">
+                        <a href="https://twitter.com/elonmusk" class="tw-ic" target="_blank">
                             <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-lg"> </i>
                         </a>
-                        <!--Google +-->
-                        <a class="gplus-ic">
-                            <i class="fab fa-google-plus-g fa-lg white-text mr-md-5 mr-3 fa-lg"> </i>
+                        <!-- Git-hub -->
+                        <a href="https://github.com/code-diggers-369" target="_blank" class="gplus-ic">
+                            <i class="fab fa-github fa-lg white-text mr-md-5 mr-3 fa-lg"> </i>
                         </a>
                         <!--Linkedin-->
-                        <a class="li-ic">
+                        <a href="https://www.linkedin.com/in/haresh-prajapati-76271b1a1" class="li-ic" target="_blank">
                             <i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-lg"> </i>
                         </a>
                         <!--Instagram-->
-                        <a class="ins-ic">
+                        <a href="https://www.instagram.com/code.diggers/" target="_blank" class="ins-ic">
                             <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-lg"> </i>
                         </a>
-                        <!--Pinterest-->
-                        <a class="pin-ic">
-                            <i class="fab fa-pinterest fa-lg white-text fa-lg"> </i>
+                        <!--Youtube-->
+                        <a href="https://www.youtube.com/channel/UCcbZ7AmY35Kps985i5UIIKA" target="_blank" class="pin-ic">
+                            <i class="fab fa-youtube fa-lg white-text fa-lg"> </i>
                         </a>
                     </div>
                 </div>

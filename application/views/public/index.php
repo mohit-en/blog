@@ -301,8 +301,7 @@
                             <h6 class="font-weight-bold mt-5 mb-3">ABOUT</h6>
                             <hr class="mb-5">
                             <img src="<?php echo base_url(); ?>tools/image/img (108).jpg" alt="sample image" class="img-fluid z-depth-1">
-                            <p class="mt-4 mb-5">Sed ut in perspiciatis unde omnis iste natus error sit on i tatem accusantium doloremque laudantium,
-                                totam rem aperiam, eaque ipsa quae.</p>
+                            <p class="mt-4 mb-5">Hey... We have amazing website where you can post your thinking as form of post.<br>We are so happy because you visit this site. <br> I hope you gave valueable information from this site.<br> Thank You</p>
                         </div>
                         <!--Grid column-->
 
@@ -431,7 +430,7 @@
                 <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
                     <h6 class="text-uppercase mb-4 font-weight-bold">About me</h6>
                     <p style=" text-align: justify;
-                    text-justify: inter-word;">Hey... bro this is mohit. I am Student of full-stack developer. I am studying in naranlala collage.</p>
+                    text-justify: inter-word;">Hii... I am Mohit Arvindbhai Mistry.<br> I am Computer Science student. Apart from that I also working as developer and make documents. <br> I am from Navsari-Gujarat.</p>
                 </div>
                 <!--/.First column-->
 

@@ -45,8 +45,12 @@ class home_model extends CI_Model
         $id = $formData['id'];
 
         $data = $this->db->query("SELECT tp.*,ul.user_name as creater FROM total_posts as tp left join user_list as ul on tp.user_id = ul.user_id WHERE post_id = $id")->result()[0];
-
-        return $data;
+        $newPosts = $this->db->query("SELECT tp.post_id,tp.img_path,tp.article_title,tp.date,ul.user_name FROM total_posts as tp left join user_list as ul on tp.user_id = ul.user_id order by post_id desc LIMIT 0,6")->result();
+        
+        // echo "<pre>";
+        //     print_r([$data,$newPosts]);
+        // echo "</pre>";
+        return [$data,$newPosts];
     }
 
     function get_users_data($formData)

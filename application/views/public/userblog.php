@@ -329,8 +329,7 @@
                             <h6 class="font-weight-bold mt-5 mb-3">ABOUT</h6>
                             <hr class="mb-5">
                             <img src="<?php echo base_url(); ?>tools/image/userblog/img (37).jpg" alt="sample image" class="img-fluid z-depth-1">
-                            <p class="mt-4 mb-5">Sed ut in perspiciatis unde omnis iste natus error sit on i tatem accusantium doloremque laudantium,
-                                totam rem aperiam, eaque ipsa quae.</p>
+                            <p class="mt-4 mb-5">Hey... We have amazing website where you can post your thinking as form of post.<br>We are so happy because you visit this site. <br> I hope you gave valueable information from this site.<br> Thank You</p>
                         </div>
                         <!--Grid column-->
 
