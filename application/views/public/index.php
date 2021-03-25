@@ -40,26 +40,10 @@
                     <ul class="navbar-nav">
 
                         <li class="nav-item dropdown ml-4 mb-0">
-                            <a class="nav-link dropdown-toggle waves-effect waves-light dark-grey-text font-weight-bold " id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> HOMEPAGE </a>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item waves-effect waves-light" href="#">V1</a>
-                                <a class="dropdown-item waves-effect waves-light" href="#">V2</a>
-                                <a class="dropdown-item waves-effect waves-light" href="#">V3</a>
-                                <a class="dropdown-item waves-effect waves-light" href="#">V4</a>
-                                <a class="dropdown-item waves-effect waves-light" href="#">V5</a>
-                                <a class="dropdown-item waves-effect waves-light" href="#">V6</a>
-                                <a class="dropdown-item waves-effect waves-light" href="#">V7</a>
-                            </div>
+                            <a href="<?php echo base_url() ?>" class="nav-link dark-grey-text font-weight-bold "  aria-expanded="false" > HOMEPAGE </a>
+        
                         </li>
-                        <li class="nav-item dropdown ml-4  mb-0">
-                            <a class="nav-link dropdown-toggle waves-effect waves-light dark-grey-text font-weight-bold" id="navbarDropdownMenuLink-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> POST PAGE </a>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink-2">
-                                <a class="dropdown-item waves-effect waves-light" href="#">V1</a>
-                                <a class="dropdown-item waves-effect waves-light" href="#">V2</a>
-                                <a class="dropdown-item waves-effect waves-light" href="#">V3</a>
-                                <a class="dropdown-item waves-effect waves-light" href="#">V4</a>
-                            </div>
-                        </li>
+                        
                         <!-- <li class="nav-item dropdown ml-4  mb-0">
                             <a href="#" class="nav-link dropdown-toggle waves-effect waves-light dark-grey-text font-weight-bold" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ABOUT</a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink-4">
