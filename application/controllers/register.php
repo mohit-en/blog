@@ -43,7 +43,10 @@ class register extends CI_Controller
             if ($this->db->where('name', $data['name'])->get('user_register')->num_rows() == 0) {
                 $tmp = false;
                 $id = $this->register_model->insert($data);
-                echo "<script>alert('Your resquest sent to the CEO.');</script>";
+                $path = base_url();
+
+
+                echo "<script>alert('Your resquest sent to the CEO.');window.location.href='$path'</script>";
 
                 // exit;
                 // redirect('home/index');

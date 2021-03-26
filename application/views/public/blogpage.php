@@ -51,7 +51,7 @@
                             <a href="<?php echo base_url() ?>" class="nav-link dark-grey-text font-weight-bold " aria-expanded="false"> HOMEPAGE </a>
 
                         </li>
-                        
+
                         <!-- <li class="nav-item dropdown ml-4  mb-0">
                             <a href="#" class="nav-link dropdown-toggle waves-effect waves-light dark-grey-text font-weight-bold" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ABOUT</a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink-4">
@@ -335,12 +335,7 @@
                                                 <!--Carousel Wrapper-->
                                                 <div id="multi-item-example" class="carousel slide carousel-multi-item mx-1" data-ride="carousel">
 
-                                                    <!--Indicators-->
-                                                    <ol class="carousel-indicators">
-                                                        <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
-                                                        <li data-target="#multi-item-example" data-slide-to="1"></li>
-                                                    </ol>
-                                                    <!--/.Indicators-->
+
 
                                                     <!--Slides-->
                                                     <div class="carousel-inner" role="listbox">
@@ -351,7 +346,9 @@
                                                             <!--Grid row-->
                                                             <div class="row mb-4 mx-1">
 
-                                                                <?php for ($i = 0; $i < 3; $i++) {
+                                                                <?php $loopVar =  count($post_data[1]) > 3 ? 3 :  count($post_data[1]); ?>
+
+                                                                <?php for ($i = 0; $i < $loopVar; $i++) {
                                                                 ?>
                                                                     <!--Grid column-->
                                                                     <div class="col-lg-4 my-3">
@@ -403,61 +400,7 @@
                                                         </div>
                                                         <!--/.First slide-->
 
-                                                        <!--Second slide-->
-                                                        <div class="carousel-item">
 
-                                                            <!--Grid row-->
-                                                            <div class="row mb-4 mx-1">
-                                                                <?php for ($i = 3; $i < 6; $i++) {
-                                                                ?>
-                                                                    <!--Grid column-->
-                                                                    <div class="col-lg-4 my-3">
-                                                                        <!--Card-->
-                                                                        <div class="card" style="height: 100%;">
-
-                                                                            <!--Card image-->
-                                                                            <div class="view overlay">
-                                                                                <a href="<?php echo base_url() . 'home/blogpage/' . $post_data[1][$i]->post_id ?>">
-                                                                                    <img style="height: 200px;" src="<?php echo base_url($post_data[1][$i]->img_path); ?>" class="card-img-top" alt="sample image">
-                                                                                    <div class="mask rgba-white-slight"></div>
-                                                                                </a>
-                                                                            </div>
-                                                                            <!--/.Card image-->
-
-                                                                            <!--Card content-->
-                                                                            <div class="card-body">
-                                                                                <!--Title-->
-                                                                                <h4 class="card-title">
-                                                                                    <strong><?php echo $post_data[1][$i]->article_title; ?></strong>
-                                                                                </h4>
-                                                                                <hr>
-
-                                                                                </p>
-                                                                                <p class="font-small font-weight-bold dark-grey-text mb-1">
-                                                                                    <i class="far fa-clock-o"></i> <?php echo $post_data[1][$i]->date; ?>
-                                                                                </p>
-                                                                                <p class="font-small grey-text mb-0"><?php echo $post_data[1][$i]->user_name; ?></p>
-                                                                                <p class="text-right mb-0 font-small font-weight-bold">
-                                                                                    <a href="<?php echo base_url() . 'home/blogpage/' . $post_data[1][$i]->post_id ?>">
-                                                                                        read more
-                                                                                        <i class="fas fa-angle-right"></i>
-                                                                                    </a>
-                                                                                </p>
-                                                                            </div>
-                                                                            <!--/.Card content-->
-
-                                                                        </div>
-                                                                        <!--/.Card-->
-
-                                                                    </div>
-                                                                    <!--Grid column-->
-                                                                <?php } ?>
-
-
-                                                            </div>
-                                                            <!--/Grid row-->
-                                                        </div>
-                                                        <!--/.Second slide-->
 
 
 
