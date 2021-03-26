@@ -64,12 +64,7 @@ class admin extends CI_Controller
 		$users['users'] = $this->admin_model->all_reg();
 		$this->load->view('admin/index', $users + $active_page);
 	}
-	public function charts()
-	{
-		$active_page['active_page'] = "dashboard";
-		$active_page['page'] = "charts";
-		$this->load->view('admin/index', $active_page);
-	}
+	
 
 	public function calender()
 	{
@@ -98,5 +93,17 @@ class admin extends CI_Controller
 	{
 		$this->session->sess_destroy();
 		redirect(base_url());
+	}
+
+
+	// this is for delete poasts by admin...
+	function delete_post_by_admin()
+	{
+		$post_id = $_GET['post_id'];
+		$this->load->model('admin_model');
+		$this->admin_model->delete_post_by_admin_model($post_id);
+		
+		redirect('admin/post_list');
+		
 	}
 }

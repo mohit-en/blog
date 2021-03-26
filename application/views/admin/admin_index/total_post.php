@@ -43,7 +43,7 @@
                                          <th>Blog Title</th>
                                          <th>Creater</th>
                                          <th>Date</th>
-                                         <th>Permission</th>
+                                         <th>Delete</th>
                                      </tr>
                                  </thead>
                                  <tbody>
@@ -55,7 +55,7 @@
                                                  <td><?php echo $post['article_title']; ?></td>
                                                  <td><?php echo $post['user_name']; ?></td>
                                                  <td><?php echo $post['date']; ?></td>
-                                                 <td><?php echo anchor(base_url('admin/delete_row?reg_id=') . $post['post_id'], 'Access'); ?></td>
+                                                 <td><?php echo anchor(base_url('admin/delete_post_by_admin?post_id=') . $post['post_id'], 'Delete'); ?></td>
 
                                              </tr>
                                          <?php }
@@ -72,7 +72,7 @@
                                          <th>Blog Title</th>
                                          <th>Creater</th>
                                          <th>Date</th>
-                                         <th>Permission</th>
+                                         <th>Delete</th>
                                      </tr>
                                  </tfoot>
                              </table>

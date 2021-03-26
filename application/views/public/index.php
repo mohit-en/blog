@@ -221,7 +221,7 @@
                         $img_path = isset($row->img_path) ? base_url() . $row->img_path : "";
                     ?>
                         <!-- custom card -->
-                        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                        <div  class="col-lg-4 col-md-6 col-sm-12 mb-4">
                             <div class="card card-small card-post card-post--1" style="height: 100%;">
                                 <a href="<?php echo base_url() . 'home/blogpage/' . $row->post_id ?>">
                                     <div class="card-post__image" style="background-image: url('<?php echo $img_path ?>');">
@@ -234,7 +234,7 @@
                                     </div>
                                 </a>
 
-                                <div class="card-body">
+                                <div style="overflow: hidden; " class="card-body">
                                     <h5 class="card-title mt-2">
                                         <a class="text-fiord-blue" href="<?php echo base_url() . 'home/blogpage/' . $row->post_id ?>"><?php echo $row->article_title ?></a>
                                     </h5>
