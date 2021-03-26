@@ -57,20 +57,7 @@
           </a>
         </div>
         <!-- ./col -->
-        <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <a href="<?php echo base_url(); ?>" class="small-box bg-warning">
-            <div class="inner">
-              <h3>44</h3>
-
-              <p>Subscribers</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-person-add"></i>
-            </div>
-            <div class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></div>
-          </a>
-        </div>
+        
         <!-- ./col -->
 
         <div class="col-lg-3 col-6">

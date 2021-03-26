@@ -1,4 +1,6 @@
-<?php function getVisIpAddr()
+<?php
+// This is for location fetching.
+/* function getVisIpAddr()
 {
 
     if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
@@ -8,10 +10,10 @@
     } else {
         return $_SERVER['REMOTE_ADDR'];
     }
-}
+} */
 ?>
 
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -36,13 +38,13 @@
     // PHP code to obtain country, city,  
     // continent, etc using IP Address 
 
-    $ip = '114.31.148.41';
+    // $ip = '114.31.148.41';
 
     // Use JSON encoded string and converts 
     // it into a PHP variable 
-    $ipdat = @json_decode(file_get_contents(
-        "http://www.geoplugin.net/json.gp?ip=" . $ip
-    ));
+    // $ipdat = @json_decode(file_get_contents(
+    //     "http://www.geoplugin.net/json.gp?ip=" . $ip
+    // ));
     // echo "<pre>";
     // print_r($ipdat);
     // echo "</pre>";
@@ -94,7 +96,8 @@
                     </small>
 
                     <!-- Getting Country from ip address -->
-                    <input type="hidden" name="country" id="country" value="<?php echo $ipdat->geoplugin_countryName; ?>">
+                    <!-- <input type="hidden" name="country" id="country" value="<?php // echo $ipdat->geoplugin_countryName; 
+                                                                                    ?>"> -->
 
                     <!-- Google capcha -->
 
@@ -107,7 +110,7 @@
                     </small> -->
                     <!-- /Google capcha -->
 
-                    
+
 
                     <button type="submit" class="btn btn-primary btn-block">Register</button>
                 </form>

@@ -17,8 +17,11 @@ class admin extends CI_Controller
 
 	public function index()
 	{
+		$this->load->model('admin_model');
 		$active_page['active_page'] = "dashboard";
 		$active_page['page'] = "dashboard";
+		$active_page['data'] = $this->admin_model->deskbord_data();
+		
 		$this->load->view('admin/index', $active_page);
 	}
 
@@ -83,9 +86,11 @@ class admin extends CI_Controller
 		$active_page['page'] = "total_post";
 		$this->load->model('admin_model');
 		$posts['posts'] = $this->admin_model->disp_post();
-		/* echo "<pre>";
-			print_r($posts);
-		echo "</pre>"; */
+		
+		// echo "<pre>";
+		// 	print_r($posts);
+		// echo "</pre>";
+		// exit;
 		$this->load->view('admin/index', $posts + $active_page);
 	}
 

@@ -53,7 +53,7 @@
                                              <tr>
                                                  <td scope="row"><?php echo $post['post_id']; ?></td>
                                                  <td><?php echo $post['article_title']; ?></td>
-                                                 <td><?php echo $post['creater']; ?></td>
+                                                 <td><?php echo $post['user_name']; ?></td>
                                                  <td><?php echo $post['date']; ?></td>
                                                  <td><?php echo anchor(base_url('admin/delete_row?reg_id=') . $post['post_id'], 'Access'); ?></td>
 

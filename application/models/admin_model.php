@@ -4,8 +4,8 @@ class admin_model extends CI_Model
 {
     function all()
     {
-        return $users = $this->db->where('type','co_admin')
-        ->get('user_list')->result_array(); //select * from user_list
+        return $users = $this->db->where('type', 'co_admin')
+            ->get('user_list')->result_array(); //select * from user_list
     }
     function all_reg()
     {
@@ -46,6 +46,31 @@ class admin_model extends CI_Model
 
     function disp_post()
     {
-        return $posts = $this->db->get('total_posts')->result_array(); //select * from total_posts
+        $this->db->select('total_posts.post_id, total_posts.article_title, user_list.user_name, total_posts.date');
+        $this->db->from('total_posts');
+        $this->db->join('user_list', 'total_posts.user_id = user_list.user_id');
+        $query = $this->db->get()->result_array();
+
+        
+        // echo "<pre>";
+        // // print_r($query);
+        // echo $query;
+        // echo "</pre>";
+        // exit;
+        return $query; 
+    }
+
+    function deskbord_data()
+    {
+        $total_posts = $this->db->get('total_posts')->num_rows();
+        $total_users = $this->db->get('user_list')->num_rows();
+        $total_request = $this->db->where('access',0)
+            ->get('user_register')->num_rows();
+        $test = ['total_posts'=>$total_posts, 'total_users'=> $total_users-1,'total_request'=> $total_request];
+        // echo "<pre>";
+        //     print_r($test);
+        // echo "</pre>";
+        return $test;
     }
 }
+

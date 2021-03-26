@@ -31,7 +31,7 @@
           <!-- small box -->
           <a href="<?php echo base_url(); ?>admin/post_list" class="small-box bg-info">
             <div class="inner">
-              <h3>1500</h3>
+              <h3> <?php echo $data['total_posts'];?> </h3>
 
               <p>Total Posts</p>
             </div>
@@ -41,27 +41,12 @@
             <div class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></div>
           </a>
         </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <a href="<?php echo base_url(); ?>admin/charts" class="small-box bg-success">
-            <div class="inner">
-              <h3>33<sup style="font-size: 20px">%</sup></h3>
-
-              <p>Traffic Rate</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-stats-bars"></i>
-            </div>
-            <div class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></div>
-          </a>
-        </div>
-        <!-- ./col -->
+        
         <div class="col-lg-3 col-6">
           <!-- small box -->
           <a href="<?php echo base_url(); ?>admin/user_list" class="small-box bg-warning">
             <div class="inner">
-              <h3>44</h3>
+              <h3><?php echo $data['total_users'];?></h3>
 
               <p>User List</p>
             </div>
@@ -77,7 +62,7 @@
           <!-- small box -->
           <a href="<?php echo base_url(); ?>admin/panding_request" class="small-box bg-danger">
             <div class="inner">
-              <h3>35</h3>
+              <h3><?php echo $data['total_request'];?></h3>
 
               <p>Pending Requests</p>
             </div>

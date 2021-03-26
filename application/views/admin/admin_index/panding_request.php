@@ -42,7 +42,7 @@
                                         <th>Id</th>
                                         <th>Name</th>
                                         <th>Email</th>
-                                        <th>Country</th>
+                                        
                                         <th>Access</th>
                                         <th>Delete</th>
                                     </tr>
@@ -54,7 +54,7 @@
                                                 <td scope="row"><?php echo $user['reg_id']; ?></td>
                                                 <td><?php echo $user['name']; ?></td>
                                                 <td><?php echo $user['email']; ?></td>
-                                                <td><?php echo $user['country']; ?></td>
+                                                
                                                 <td><?php echo anchor(base_url('admin/access_row?reg_id=') . $user['reg_id'] . '&access=1', 'Access'); ?></td>
                                                 <td><?php echo anchor(base_url('admin/access_row?reg_id=') . $user['reg_id'] . '&access=0', 'Delete'); ?></td>
                                             </tr>
@@ -71,7 +71,7 @@
                                         <th>Id</th>
                                         <th>Name</th>
                                         <th>Email</th>
-                                        <th>Country</th>
+                                        
                                         <th>Access</th>
                                         <th>Delete</th>
                                     </tr>
