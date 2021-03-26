@@ -129,4 +129,16 @@ class co_admin extends CI_Controller
 		$active_page['page'] = "calender";
 		$this->load->view('co_admin/index', $active_page);
 	}
+
+	public function update_post_view()
+	{
+		$post_id = $_GET['post_id'];
+		$active_page['post_data'] = $this->co_admin_model->update_post_view_model($post_id);
+		$active_page['active_page'] = "dashboard";
+		$active_page['page'] = "update_post";
+
+		$this->load->view('co_admin/index', $active_page);
+		
+		
+	}
 }

@@ -94,4 +94,36 @@ class api extends CI_Controller
             }
         }
     }
+
+    // Update posts
+    public function update_post_api()
+    {
+
+        if ($this->input->post("title")) {
+            $post_id = $_GET['post_id'];
+            $formData['article_title'] = $this->input->post("title");
+            $formData['short_description'] = $this->input->post("short_description");
+
+            $formData['article'] = $this->input->post("data");
+
+            $formData['date'] = date('Y-m-d');
+            $flag = 0;
+            // if (isset($this->input->post("poster"))) {
+            if (isset($_FILES['poster_img']['tmp_name'])) {
+
+                if ($_FILES['poster_img'] && $_FILES['poster_img']['tmp_name']) {
+                    $imageFileType = pathinfo($_FILES['poster_img']['name'], PATHINFO_EXTENSION);
+                    $filename = rand(1, 10000) . "-" . rand(1, 10000) . "-" . rand(1, 10000) . rand(1, 10000) . ".$imageFileType";
+                    $location = "uploads/posts/" . $filename;
+
+                    move_uploaded_file($_FILES['poster_img']['tmp_name'], $location);
+
+                    $formData['img_path'] = $location;
+                    $flag = 1;
+                }
+            }
+
+            $this->api_model->update_post_model($formData, $post_id, $flag);
+        }
+    }
 }

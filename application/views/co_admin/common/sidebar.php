@@ -19,7 +19,7 @@
                 if (!empty($url)) {
                     $img_path =   base_url() . $url;
                 } else {
-                    $img_path =  "https://www.w3schools.com/howto/img_avatar.png";
+                    $img_path =  base_url() ."uploads\users\avtar.jpg";
                 }
 
                 ?>
@@ -31,6 +31,7 @@
                 <a href="" class="d-block"><?php echo $this->session->userdata('name'); ?></a>
             </div>
         </div>
+        
 
 
         <!-- /.widget-user -->

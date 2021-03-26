@@ -34,6 +34,16 @@ class api_model extends CI_Model
     function insert_post_model($data)
     {
         $this->db->insert('total_posts', $data);
+    }
 
+    function update_post_model($data, $post_id, $flag)
+    {
+        if ($flag == 1) {
+            $url =    $this->db->where('post_id', $post_id)
+                ->get('total_posts')->result_array()[0]['img_path'];
+            unlink($url);
+        }
+        $this->db->where('post_id', $post_id)
+            ->update('total_posts', $data);
     }
 }

@@ -56,4 +56,17 @@ class co_admin_model extends CI_Model
         $this->db->where('user_id', $data['user_id']);
         $this->db->update('user_list', array('profile_pic' => $data['img_path']));
     }
+    function update_post_view_model($post_id)    
+    {
+        $p = $this->db->where('post_id',$post_id)->get('total_posts')->result_array();
+        // echo "<pre>";
+        // print_r($p);
+        // echo "</pre>";
+        $p = $p[0];
+        // echo "<pre>";
+        // print_r($p);
+        // echo "</pre>";
+        return $p;
+        
+    }
 }

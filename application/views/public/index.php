@@ -132,10 +132,10 @@
                                 <div class="full-bg-img flex-center white-text">
                                     <ul class="animated fadeIn col-10 list-unstyled">
                                         <li>
-                                            <h1 class="h1-responsive font-weight-bold">Lorem ipsum dolor sit amet, consectetur adipiscing elit</h1>
+                                            <h1 class="h1-responsive font-weight-bold">“A youthful nation like ours must leave an impact in the entire world.”</h1>
                                         </li>
                                         <li>
-                                            <p>Tempora incidunt ut labore et dolore veritatis et quasi architecto beatae</p>
+                                            <p>- PM Narendra Modi</p>
                                         </li>
 
                                     </ul>
@@ -154,10 +154,10 @@
                                 <div class="full-bg-img flex-center white-text">
                                     <ul class="animated fadeIn col-10 list-unstyled">
                                         <li>
-                                            <h1 class="h1-responsive font-weight-bold">Nemo enim ipsam voluptatem quia voluptas sit </h1>
+                                            <h1 class="h1-responsive font-weight-bold">“You have to dream before your dreams can come true.”</h1>
                                         </li>
                                         <li>
-                                            <p>Nemo enim ipsamvoluptatem quia veritatis et quasi architecto beatae</p>
+                                            <p>- Dr APJ Abdul Kalam</p>
                                         </li>
                                     </ul>
                                 </div>
@@ -175,10 +175,10 @@
                                 <div class="full-bg-img flex-center white-text">
                                     <ul class="animated fadeIn col-10 list-unstyled">
                                         <li>
-                                            <h1 class="h1-responsive font-weight-bold">Sed ut perspiciatis unde omnis iste natus sit voluptatem</h1>
+                                            <h1 class="h1-responsive font-weight-bold">"I've actually not read any books on time management."</h1>
                                         </li>
                                         <li>
-                                            <p>Unde omnis iste natus sit voluptatem veritatis et quasi architecto beatae</p>
+                                            <p>- Elon Musk</p>
                                         </li>
                                     </ul>
                                 </div>
@@ -223,7 +223,7 @@
                         <!-- custom card -->
                         <div  class="col-lg-4 col-md-6 col-sm-12 mb-4">
                             <div class="card card-small card-post card-post--1" style="height: 100%;">
-                                <a href="<?php echo base_url() . 'home/blogpage/' . $row->post_id ?>">
+                                <a href="<?php echo base_url() . 'home/blogpage/' . $row->post_id ;?>">
                                     <div class="card-post__image" style="background-image: url('<?php echo $img_path ?>');">
 
 

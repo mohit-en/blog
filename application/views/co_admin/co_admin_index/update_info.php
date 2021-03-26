@@ -21,7 +21,7 @@
                                 if (!empty($profile[0]->profile_pic)) {
                                     $img_path =   base_url() . $profile[0]->profile_pic;
                                 } else {
-                                    $img_path =  "https://www.w3schools.com/howto/img_avatar.png";
+                                    $img_path =  base_url() ."uploads\users\avtar.jpg";
                                 }
                                 ?>
                                 <img height="200px" width="200px" onclick="$('#upload').click()" src="<?php echo $img_path; ?>" class="img-circle elevation-2" alt="User Image">

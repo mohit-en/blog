@@ -7,7 +7,7 @@
                 <div class="col-sm-6">
                     <h1 class="m-0">Total Posts</h1>
                 </div>
-                
+
                 <!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -34,7 +34,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Your total posts list</h3>
-                            
+
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -44,6 +44,7 @@
                                         <th>Post_id</th>
                                         <th>Article_title</th>
                                         <th>Date</th>
+                                        <th>view</th>
                                         <th>Access</th>
                                         <th>Delete</th>
                                     </tr>
@@ -55,8 +56,10 @@
                                                 <td scope="row"><?php echo $post['post_id']; ?></td>
                                                 <td><?php echo $post['article_title']; ?></td>
                                                 <td><?php echo $post['date']; ?></td>
-                                                <td><?php //echo anchor(base_url('admin/delete_row?reg_id=') . $post['reg_id'], 'DELETE'); 
-                                                    ?>Hii</td>
+                                                <td><?php echo anchor(base_url('home/blogpage/') . $post['post_id'], 'View',"target = '_blank'"); 
+                                                    ?></td>
+                                                <td><?php echo anchor(base_url('co_admin/update_post_view?post_id=') . $post['post_id'], 'Edit'); 
+                                                    ?></td>
                                                 <td><?php echo anchor(base_url('co_admin/delete_row?post_id=') . $post['post_id'], 'DELETE'); ?></td>
 
                                             </tr>
@@ -72,6 +75,7 @@
                                         <th>Post_id</th>
                                         <th>Article_title</th>
                                         <th>Date</th>
+                                        <th>view</th>
                                         <th>Access</th>
                                         <th>Delete</th>
                                     </tr>
