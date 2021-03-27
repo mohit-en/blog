@@ -2,9 +2,27 @@
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
-        <li class="nav-item">
-            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-        </li>
+        <script>
+            var a = 0;
+
+            function change() {
+                if (a == 0) {
+                    a = 1;
+                    console.log(a);
+                } else {
+                    a = 0;
+                    console.log(a);
+                }
+                if (a == 1) {
+                    document.getElementById("bod").classList.add('sidebar-collapse');
+                }
+                if (a == 0) {
+                    document.getElementById("bod").classList.remove('sidebar-collapse');
+                }
+            }
+        </script>
+
+        <button style=" border: none;" class="btn btn-link" onclick="change()"><i style="color:black;" class="fas fa-bars"></i></button>
         <li class="nav-item d-none d-sm-inline-block">
             <a href="<?php echo base_url(); ?>admin/index" class="nav-link">Home</a>
         </li>

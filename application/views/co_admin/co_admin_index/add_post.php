@@ -81,7 +81,7 @@
 
         fd.append('title', $("#title").val().trim());
         fd.append('short_description', $("#short_description").val().trim());
-        fd.append('data', $("#summernote").val().trim());
+        fd.append('data', $("#summernote").val());
 
         $.ajax({
             url: "<?php echo base_url() ?>api/add_post_api",

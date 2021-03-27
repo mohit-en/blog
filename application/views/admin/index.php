@@ -34,7 +34,7 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>tools/plugins/summernote/summernote-bs4.min.css" />
 </head>
 
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="hold-transition sidebar-mini layout-fixed" id="bod">
   <div class="wrapper">
 
 

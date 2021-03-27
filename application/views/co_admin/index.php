@@ -48,20 +48,14 @@
 
 </head>
 
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="hold-transition sidebar-mini layout-fixed " id="bod">
   <div class="wrapper">
 
 
 
     <?php include('common/header.php'); ?>
     <?php include('common/sidebar.php'); ?>
-    <div>
-      <!-- Control Sidebar -->
-      <aside class="control-sidebar control-sidebar-dark">
-        <!-- Control sidebar content goes here -->
-      </aside>
-      <!-- /.control-sidebar -->
-    </div>
+
 
 
     <!-- Content Wrapper. Contains page content -->

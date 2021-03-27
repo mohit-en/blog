@@ -19,7 +19,7 @@
                 if (!empty($url)) {
                     $img_path =   base_url() . $url;
                 } else {
-                    $img_path =  base_url() ."uploads\users\avtar.jpg";
+                    $img_path =  base_url() . "uploads\users\avtar.jpg";
                 }
 
                 ?>
@@ -31,7 +31,7 @@
                 <a href="" class="d-block"><?php echo $this->session->userdata('name'); ?></a>
             </div>
         </div>
-        
+
 
 
         <!-- /.widget-user -->
