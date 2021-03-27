@@ -48,12 +48,12 @@ class admin extends CI_Controller
 			redirect('admin/panding_request');
 		}
 	}
-	public function delete_row()
+	public function delete_user()
 	{
 
 		$id = $this->input->get('reg_id');
 		$this->load->model('admin_model');
-		$this->admin_model->row_delete($id);
+		$this->admin_model->delete_user_model($id);
 		$this->user_list();
 	}
 	public function panding_request()

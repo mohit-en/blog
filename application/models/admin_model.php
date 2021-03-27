@@ -35,7 +35,7 @@ class admin_model extends CI_Model
         }
     }
 
-    function row_delete($id)
+    function delete_user_model($id)
     {
         // $id = intval($id);
         if ($id > 0) {
@@ -62,9 +62,9 @@ class admin_model extends CI_Model
             foreach ($post_images as $item) {
                 unlink($item->img_path);
             }
+
+            $this->db->where('user_id', $user_id)->delete('calender');
             $this->db->where('user_id', $user_id)->delete('total_posts');
-
-
 
             $this->db->where('reg_id', $id)
                 ->delete('user_register');

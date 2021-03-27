@@ -43,7 +43,7 @@
                                         <th>User Name</th>
                                         <th>Email</th>
                                         <th>Total Posts</th>
-                                        <th>Type</th>
+                                        <th>Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -54,7 +54,7 @@
                                                 <td><?php echo $user['user_name']; ?></td>
                                                 <td><?php echo $user['email']; ?></td>
                                                 <td><?php echo $user['total_post']; ?></td>
-                                                <td><?php echo anchor(base_url('admin/delete_row?reg_id=') . $user['reg_id'], 'DELETE'); ?></td>
+                                                <td><?php echo anchor(base_url('admin/delete_user?reg_id=') . $user['reg_id'], 'DELETE'); ?></td>
 
                                             </tr>
                                         <?php }
@@ -70,7 +70,7 @@
                                         <th>User Name</th>
                                         <th>Email</th>
                                         <th>Total Posts</th>
-                                        <th>Type</th>
+                                        <th>Delete</th>
                                     </tr>
                                 </tfoot>
                             </table>
