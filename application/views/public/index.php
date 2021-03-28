@@ -40,10 +40,10 @@
                     <ul class="navbar-nav">
 
                         <li class="nav-item dropdown ml-4 mb-0">
-                            <a href="<?php echo base_url() ?>" class="nav-link dark-grey-text font-weight-bold "  aria-expanded="false" > HOMEPAGE </a>
-        
+                            <a href="<?php echo base_url() ?>" class="nav-link dark-grey-text font-weight-bold " aria-expanded="false"> HOMEPAGE </a>
+
                         </li>
-                        
+
                         <!-- <li class="nav-item dropdown ml-4  mb-0">
                             <a href="#" class="nav-link dropdown-toggle waves-effect waves-light dark-grey-text font-weight-bold" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ABOUT</a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink-4">
@@ -126,7 +126,7 @@
                     <!--First slide-->
                     <div class="carousel-item active">
                         <div class="view h-100">
-                            <img class="d-block h-100 w-lg-100" src="<?php echo base_url(); ?>tools/image/city13.jpg" alt="First slide">
+                            <img style="height: 175%;" class="d-block w-lg-100" src="<?php echo base_url(); ?>tools/image/modi.jpg" alt="First slide">
                             <div class="mask rgba-indigo-light">
                                 <!-- Caption -->
                                 <div class="full-bg-img flex-center white-text">
@@ -148,7 +148,7 @@
                     <!--Second slide-->
                     <div class="carousel-item h-100">
                         <div class="view h-100">
-                            <img class="d-block h-100 w-lg-100" src="<?php echo base_url(); ?>tools/image/city10.jpg" alt="Second slide">
+                            <img class="d-block h-100 w-lg-100" src="<?php echo base_url(); ?>tools/image/kalamsaheb.jpg" alt="Second slide">
                             <div class="mask rgba-stylish-light">
                                 <!-- Caption -->
                                 <div class="full-bg-img flex-center white-text">
@@ -169,7 +169,7 @@
                     <!--Third slide-->
                     <div class="carousel-item">
                         <div class="view h-100">
-                            <img class="d-block h-100 w-lg-100" src="<?php echo base_url(); ?>tools/image/city12.jpg" alt="Third slide">
+                            <img style="height : 120%;" class="d-block w-lg-100" src="<?php echo base_url(); ?>tools/image/elonmusk.jpg" alt="Third slide">
                             <div class="mask rgba-black-light">
                                 <!-- Caption -->
                                 <div class="full-bg-img flex-center white-text">
@@ -221,9 +221,9 @@
                         $img_path = isset($row->img_path) ? base_url() . $row->img_path : "";
                     ?>
                         <!-- custom card -->
-                        <div  class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
                             <div class="card card-small card-post card-post--1" style="height: 100%;">
-                                <a href="<?php echo base_url() . 'home/blogpage/' . $row->post_id ;?>">
+                                <a href="<?php echo base_url() . 'home/blogpage/' . $row->post_id; ?>">
                                     <div class="card-post__image" style="background-image: url('<?php echo $img_path ?>');">
 
 
@@ -343,7 +343,7 @@
                         <div class="col-lg-4 col-md-6">
                             <h6 class="font-weight-bold mt-5 mb-3">OLDER POSTS</h6>
                             <hr class="mb-5">
-                            
+
 
                             <?php foreach ($data['old_posts'] as $value) { ?>
 
@@ -384,7 +384,7 @@
                                 <!--Grid row-->
                             <?php } ?>
 
-                           
+
 
                         </div>
                         <!--Grid column-->

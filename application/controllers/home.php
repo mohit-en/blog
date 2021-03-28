@@ -38,7 +38,7 @@ class home extends CI_Controller
 
         $data['data'] = $this->home_model->get_users_data($formData);
 
-        $this->load->view('public/userblog',$data);
+        $this->load->view('public/userblog', $data);
     }
     public function blogpage($id)
     {
@@ -52,5 +52,9 @@ class home extends CI_Controller
         // exit;
         // print_r($data['post_data']->article_title);
         $this->load->view('public/blogpage', $data);
+    }
+    public function like($like)
+    {
+        return 1;
     }
 }
