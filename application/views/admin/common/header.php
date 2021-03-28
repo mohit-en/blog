@@ -20,6 +20,19 @@
                     document.getElementById("bod").classList.remove('sidebar-collapse');
                 }
             }
+
+            window.onload = function(s) {
+                patiya();
+            }
+            window.onresize = function(s) {
+                patiya();
+            }
+
+            function patiya() {
+                var screenSize = window.innerWidth;
+
+                console.log(screenSize);
+            }
         </script>
 
         <button style=" border: none;" class="btn btn-link" onclick="change()"><i style="color:black;" class="fas fa-bars"></i></button>
