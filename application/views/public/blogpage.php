@@ -355,9 +355,9 @@
                                                         ?>;
                                                 var b = <?php
                                                         if ($like_data['status'] == 0) {
-                                                            echo 1;
-                                                        } else {
                                                             echo 0;
+                                                        } else {
+                                                            echo 1;
                                                         }
                                                         ?>;
 
@@ -365,14 +365,20 @@
                                                     if (a == 1) {
                                                         document.getElementById('like').style.fill = "#3DA6FF";
                                                         document.getElementById('dislike').style.fill = "#909090";
-                                                    } else if (b == 0) {
+                                                    }
+                                                    if (b == 0) {
                                                         document.getElementById('dislike').style.fill = "red";
                                                         document.getElementById('like').style.fill = "#909090";
                                                     }
                                                 }
 
                                                 function change(id) {
-                                                    var user_id = <?php echo $this->session->userdata('id'); ?>;
+                                                    var user_id = <?php $id = $this->session->userdata('id');
+                                                                    if ($id) {
+                                                                        echo $id;
+                                                                    } else {
+                                                                        echo "0";
+                                                                    } ?>;
                                                     var post_id = <?php echo $post_id ?>;
 
 
@@ -418,8 +424,8 @@
                                                         }
                                                     }
                                                     if (id == "dislike") {
-                                                        if (b == 0) {
-                                                            b = 1;
+                                                        if (b == 1) {
+                                                            b = 0;
                                                             document.getElementById(id).style.fill = "red";
                                                             document.getElementById('like').style.fill = "#909090";
 
@@ -440,7 +446,7 @@
 
 
                                                         } else {
-                                                            b = 0;
+                                                            b = 1;
                                                             document.getElementById(id).style.fill = "#909090";
 
                                                             $.ajax({
