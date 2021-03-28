@@ -45,16 +45,60 @@ class home extends CI_Controller
         $formData['id'] = $id;
 
         $data['post_data'] = $this->home_model->getPostsData($formData);
+        $data['post_id'] = $id;
+
+        $data['like_data'] = $this->home_model->like_status_model($formData);
+
+        // print_r($data['like_data']);
 
         // echo "<pre>";
         //     print_r($data);
         // echo "</pre>";
         // exit;
         // print_r($data['post_data']->article_title);
+
+
         $this->load->view('public/blogpage', $data);
     }
-    public function like($like)
+    public function like($post_id, $user_id)
     {
-        return 1;
+        if ($this->session->userdata('id')) {
+            $formData['user_id'] = $user_id;
+            $formData['post_id'] = $post_id;
+            $formData['type'] = "1";
+            $this->home_model->like_model($formData);
+        } else {
+            header('HTTP/1.1 500 Internal Server Booboo');
+            header('Content-Type: application/json; charset=UTF-8');
+            die(json_encode(array('message' => 'Login First', 'code' => 1337)));
+        }
+    }
+
+    public function dislike($post_id, $user_id)
+    {
+        if ($this->session->userdata('id')) {
+
+            $formData['user_id'] = $user_id;
+            $formData['post_id'] = $post_id;
+            $formData['type'] = "0";
+            $this->home_model->unlike_model($formData);
+        } else {
+            header('HTTP/1.1 500 Internal Server Booboo');
+            header('Content-Type: application/json; charset=UTF-8');
+            die(json_encode(array('message' => 'Login First', 'code' => 1337)));
+        }
+    }
+
+    public function removelike($post_id, $user_id)
+    {
+        if ($this->session->userdata('id')) {
+            $formData['user_id'] = $user_id;
+            $formData['post_id'] = $post_id;
+            $this->home_model->removelike_model($formData);
+        } else {
+            header('HTTP/1.1 500 Internal Server Booboo');
+            header('Content-Type: application/json; charset=UTF-8');
+            die(json_encode(array('message' => 'Login First', 'code' => 1337)));
+        }
     }
 }

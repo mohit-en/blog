@@ -18,26 +18,26 @@
     <link href="<?php echo base_url(); ?>tools/public/css/mdb.min.css" rel="stylesheet">
     <!-- This script for block key to open inspect element -->
     <script>
-        document.onkeydown = function(e) {
-            if (event.keyCode == 123) {
-                return false;
-            }
-            if (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'i'.charCodeAt(0))) {
-                return false;
-            }
-            if (e.ctrlKey && e.shiftKey && (e.keyCode == 'C'.charCodeAt(0) || e.keyCode == 'c'.charCodeAt(0))) {
-                return false;
-            }
-            if (e.ctrlKey && e.shiftKey && (e.keyCode == 'J'.charCodeAt(0) || e.keyCode == 'j'.charCodeAt(0))) {
-                return false;
-            }
-            if (e.ctrlKey && (e.keyCode == 'U'.charCodeAt(0) || e.keyCode == 'u'.charCodeAt(0))) {
-                return false;
-            }
-            if (e.ctrlKey && (e.keyCode == 'S'.charCodeAt(0) || e.keyCode == 's'.charCodeAt(0))) {
-                return false;
-            }
-        }
+        // document.onkeydown = function(e) {
+        //     if (event.keyCode == 123) {
+        //         return false;
+        //     }
+        //     if (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'i'.charCodeAt(0))) {
+        //         return false;
+        //     }
+        //     if (e.ctrlKey && e.shiftKey && (e.keyCode == 'C'.charCodeAt(0) || e.keyCode == 'c'.charCodeAt(0))) {
+        //         return false;
+        //     }
+        //     if (e.ctrlKey && e.shiftKey && (e.keyCode == 'J'.charCodeAt(0) || e.keyCode == 'j'.charCodeAt(0))) {
+        //         return false;
+        //     }
+        //     if (e.ctrlKey && (e.keyCode == 'U'.charCodeAt(0) || e.keyCode == 'u'.charCodeAt(0))) {
+        //         return false;
+        //     }
+        //     if (e.ctrlKey && (e.keyCode == 'S'.charCodeAt(0) || e.keyCode == 's'.charCodeAt(0))) {
+        //         return false;
+        //     }
+        // }
     </script>
     <!-- This script for cover image style -->
     <style>
@@ -346,28 +346,117 @@
 
                                             </div>
                                             <script>
-                                                var a = 0;
-                                                var b = 0;
+                                                var a = <?php
+                                                        if ($like_data['status'] == 1) {
+                                                            echo 1;
+                                                        } else {
+                                                            echo 0;
+                                                        }
+                                                        ?>;
+                                                var b = <?php
+                                                        if ($like_data['status'] == 0) {
+                                                            echo 1;
+                                                        } else {
+                                                            echo 0;
+                                                        }
+                                                        ?>;
+
+                                                window.onload = function() {
+                                                    if (a == 1) {
+                                                        document.getElementById('like').style.fill = "#3DA6FF";
+                                                        document.getElementById('dislike').style.fill = "#909090";
+                                                    } else if (b == 0) {
+                                                        document.getElementById('dislike').style.fill = "red";
+                                                        document.getElementById('like').style.fill = "#909090";
+                                                    }
+                                                }
 
                                                 function change(id) {
+                                                    var user_id = <?php echo $this->session->userdata('id'); ?>;
+                                                    var post_id = <?php echo $post_id ?>;
+
+
                                                     if (id == 'like') {
                                                         if (a == 0) {
                                                             a = 1;
                                                             document.getElementById(id).style.fill = "#3DA6FF";
                                                             document.getElementById('dislike').style.fill = "#909090";
+
+                                                            $.ajax({
+                                                                method: "POST",
+                                                                url: `<?php echo base_url() ?>/home/like/${post_id}/${user_id}`,
+
+                                                                success: function() {
+                                                                    window.location.reload()
+
+                                                                },
+                                                                error: function() {
+                                                                    alert("Login First Than Like")
+                                                                    window.location.href = "<?php echo base_url() ?>login"
+
+                                                                }
+                                                            })
+
                                                         } else {
                                                             a = 0;
                                                             document.getElementById(id).style.fill = "#909090";
+
+                                                            $.ajax({
+                                                                method: "POST",
+                                                                url: `<?php echo base_url() ?>/home/removelike/${post_id}/${user_id}`,
+
+                                                                success: function() {
+                                                                    window.location.reload()
+                                                                },
+                                                                error: function() {
+                                                                    alert("Login First Than Like")
+                                                                    window.location.href = "<?php echo base_url() ?>login"
+
+                                                                }
+                                                            })
+
                                                         }
                                                     }
                                                     if (id == "dislike") {
                                                         if (b == 0) {
                                                             b = 1;
-                                                            document.getElementById(id).style.fill = "#3DA6FF";
+                                                            document.getElementById(id).style.fill = "red";
                                                             document.getElementById('like').style.fill = "#909090";
+
+                                                            $.ajax({
+                                                                method: "POST",
+                                                                url: `<?php echo base_url() ?>/home/dislike/${post_id}/${user_id}`,
+
+                                                                success: function() {
+
+                                                                    window.location.reload()
+                                                                },
+                                                                error: function() {
+                                                                    alert("Login First Than Like")
+                                                                    window.location.href = "<?php echo base_url() ?>login"
+
+                                                                }
+                                                            })
+
+
                                                         } else {
                                                             b = 0;
                                                             document.getElementById(id).style.fill = "#909090";
+
+                                                            $.ajax({
+                                                                method: "POST",
+                                                                url: `<?php echo base_url() ?>/home/removelike/${post_id}/${user_id}`,
+
+                                                                success: function() {
+
+                                                                    window.location.reload()
+                                                                },
+                                                                error: function() {
+                                                                    alert("Login First Than Like")
+                                                                    window.location.href = "<?php echo base_url() ?>login"
+
+                                                                }
+                                                            })
                                                         }
                                                     }
                                                 }
@@ -380,14 +469,18 @@
                                                             <path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z" />
                                                         </svg>
                                                     </a>
-                                                    15.2 k &nbsp;&nbsp;
+                                                    <?php
+                                                    echo $like_data['like']
+
+                                                    ?> &nbsp;&nbsp;
+
                                                     <a>
                                                         <svg style="fill: #909090;" id="dislike" onclick="change('dislike')" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
                                                             <path d="M0 0h24v24H0z" fill="none" />
                                                             <path d="M15 3H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 23l6.59-6.59c.36-.36.58-.86.58-1.41V5c0-1.1-.9-2-2-2zm4 0v12h4V3h-4z" />
                                                         </svg>
                                                     </a>
-                                                    19.7 k
+                                                    <?php echo $like_data['dislike'] ?>
                                                 </div>
                                             </center>
 

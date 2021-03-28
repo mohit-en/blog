@@ -9,10 +9,9 @@
                 function change() {
                     if (a == 0) {
                         a = 1;
-                        console.log(a);
+
                     } else {
                         a = 0;
-                        console.log(a);
                     }
                     if (a == 1) {
                         document.getElementById("bod").classList.add('sidebar-collapse');
