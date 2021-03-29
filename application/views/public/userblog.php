@@ -58,7 +58,7 @@
                             </li>
 
                             <li class="nav-item ml-4 mb-0">
-                                <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold" href="<?php echo base_url() ?>co_admin/logout">LOG-OUT
+                                <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold" href="<?php echo base_url() ?>home/logout">LOG-OUT
                                     <span class="sr-only">(current)</span>
                                 </a>
                             </li>

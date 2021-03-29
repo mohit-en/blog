@@ -10,7 +10,7 @@
         <!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="<?php echo base_url() ; ?>">Home</a></li>
+            <li class="breadcrumb-item"><a href="<?php echo base_url(); ?>">Home</a></li>
             <li class="breadcrumb-item active">Dashboard</li>
           </ol>
         </div>
@@ -21,7 +21,6 @@
     <!-- /.container-fluid -->
   </div>
   <!-- /.content-header -->
-
   <!-- Main content -->
   <section class="content">
     <div class="container-fluid">
@@ -31,7 +30,7 @@
           <!-- small box -->
           <a href="<?php echo base_url(); ?>co_admin/total_posts" class="small-box bg-primary">
             <div class="inner">
-              <h3><?php echo $total_post;?></h3>
+              <h3><?php echo $total_post; ?></h3>
 
               <p>Total Posts</p>
             </div>
@@ -57,7 +56,7 @@
           </a>
         </div>
         <!-- ./col -->
-        
+
         <!-- ./col -->
 
         <div class="col-lg-3 col-6">

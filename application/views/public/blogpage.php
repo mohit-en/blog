@@ -51,6 +51,23 @@
             max-height: 600px;
         }
     </style>
+    <style>
+        .active-like {
+            fill: rgb(61, 166, 255);
+        }
+
+        .active-dislike {
+            fill: red;
+        }
+
+        .unactive-like {
+            fill: #909090;
+        }
+
+        .unactive-dislike {
+            fill: #909090;
+        }
+    </style>
 </head>
 
 <body class="postpage-v3" oncontextmenu="return false;">
@@ -93,7 +110,7 @@
                             </li>
 
                             <li class="nav-item ml-4 mb-0">
-                                <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold" href="<?php echo base_url() ?>co_admin/logout">LOG-OUT
+                                <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold" href="<?php echo base_url() ?>home/logout">LOG-OUT
                                     <span class="sr-only">(current)</span>
                                 </a>
                             </li>
@@ -363,16 +380,19 @@
 
                                                 window.onload = function() {
                                                     if (a == 1) {
-                                                        document.getElementById('like').style.fill = "#3DA6FF";
-                                                        document.getElementById('dislike').style.fill = "#909090";
+                                                        $('#like').addClass('active-like');
+                                                        $("#dislike").addClass('unactive-dislike');
+                                                    } else if (b == 0) {
+                                                        $('#dislike').addClass('active-dislike');
+                                                        $("#like").addClass('unactive-like');
+                                                    } else {
+                                                        $("#like").addClass('unactive-like');
+                                                        $("#dislike").addClass('unactive-dislike');
                                                     }
-                                                    if (b == 0) {
-                                                        document.getElementById('dislike').style.fill = "red";
-                                                        document.getElementById('like').style.fill = "#909090";
-                                                    }
+
                                                 }
 
-                                                function change(id) {
+                                                function getLikeDislikeData(classList) {
                                                     var user_id = <?php $id = $this->session->userdata('id');
                                                                     if ($id) {
                                                                         echo $id;
@@ -381,130 +401,104 @@
                                                                     } ?>;
                                                     var post_id = <?php echo $post_id ?>;
 
+                                                    if (classList[0] == 'active-like') {
+                                                        $('#like').removeClass('active-like').addClass('unactive-like');
+                                                        $('#dislike').removeClass('active-dislike').addClass('unactive-dislike');
 
-                                                    if (id == 'like') {
-                                                        if (a == 0) {
-                                                            a = 1;
+                                                        $.ajax({
+                                                            method: "POST",
+                                                            url: `<?php echo base_url() ?>/home/removelike/${post_id}/${user_id}`,
+                                                            success: function(data) {
+                                                                setLikesAndDislikeNumbers(data);
+                                                            },
+                                                            error: function() {
+                                                                alert("Login First Than Like");
+                                                                window.location.href = "<?php echo base_url() ?>login"
 
-                                                            $.ajax({
-                                                                method: "POST",
-                                                                url: `<?php echo base_url() ?>/home/like/${post_id}/${user_id}`,
+                                                            }
+                                                        })
 
-                                                                success: function(tt) {
-                                                                    // window.location.reload()
-                                                                    document.getElementById(id).style.fill = "#3DA6FF";
-                                                                    document.getElementById('dislike').style.fill = "#909090";
-                                                                    // document.getElementById('like_count').textContent = <?php //echo $like_data['like']; 
-                                                                                                                            ?>;
-                                                                    document.getElementById('like_count').textContent = <?php echo $like_data['like'] + 1; ?>;
-                                                                    if (b == 0) {
-                                                                        if (document.getElementById('dis_like_count').textContent == 1) {
-                                                                            document.getElementById('dis_like_count').textContent = <?php echo $like_data['dislike']; ?>;
-                                                                        } else {
-                                                                            document.getElementById('dis_like_count').textContent = <?php echo $like_data['dislike'] - 1; ?>;
-                                                                        }
-                                                                    }
-                                                                },
-                                                                error: function() {
-                                                                    alert("Login First Than Like");
-                                                                    window.location.href = "<?php echo base_url() ?>login"
+                                                    } else if (classList[0] == 'unactive-like') {
+                                                        $('#like').removeClass('unactive-like').addClass('active-like');
+                                                        $('#dislike').removeClass('active-dislike').addClass('unactive-dislike');
 
-                                                                }
-                                                            })
+                                                        $.ajax({
+                                                            method: "POST",
+                                                            url: `<?php echo base_url() ?>/home/like/${post_id}/${user_id}`,
+                                                            success: function(data) {
+                                                                setLikesAndDislikeNumbers(data);
+                                                            },
+                                                            error: function() {
+                                                                alert("Login First Than Like");
+                                                                window.location.href = "<?php echo base_url() ?>login"
 
-                                                        } else {
-                                                            a = 0;
-
-                                                            $.ajax({
-                                                                method: "POST",
-                                                                url: `<?php echo base_url() ?>/home/removelike/${post_id}/${user_id}`,
-
-                                                                success: function() {
-                                                                    document.getElementById(id).style.fill = "#909090";
-                                                                    document.getElementById('like_count').textContent = <?php echo $like_data['like']; ?>;
-                                                                    // window.location.reload()
-                                                                },
-                                                                error: function() {
-                                                                    alert("Login First Than Like")
-                                                                    window.location.href = "<?php echo base_url() ?>login"
-
-                                                                }
-                                                            })
-
-                                                        }
+                                                            }
+                                                        })
                                                     }
-                                                    if (id == "dislike") {
-                                                        if (b == 1) {
-                                                            b = 0;
 
-                                                            $.ajax({
-                                                                method: "POST",
-                                                                url: `<?php echo base_url() ?>/home/dislike/${post_id}/${user_id}`,
+                                                    if (classList[0] == 'active-dislike') {
+                                                        $('#dislike').removeClass('active-dislike').addClass('unactive-dislike');
+                                                        $('#like').removeClass('active-like').addClass('unactive-like');
 
-                                                                success: function() {
-                                                                    document.getElementById(id).style.fill = "red";
-                                                                    document.getElementById('like').style.fill = "#909090";
-                                                                    document.getElementById('dis_like_count').textContent = <?php echo $like_data['dislike'] + 1; ?>;
-                                                                    if (a == 1) {
-                                                                        if (document.getElementById('like_count').textContent == 1) {
-                                                                            document.getElementById('like_count').textContent = <?php echo $like_data['like']; ?>;
-                                                                        }else{
-                                                                            document.getElementById('like_count').textContent = <?php echo $like_data['like'] - 1; ?>;
-                                                                        }
-                                                                    }
-                                                                    // window.location.reload()
-                                                                },
-                                                                error: function() {
-                                                                    alert("Login First Than Like")
-                                                                    window.location.href = "<?php echo base_url() ?>login"
+                                                        $.ajax({
+                                                            method: "POST",
+                                                            url: `<?php echo base_url() ?>/home/removelike/${post_id}/${user_id}`,
+                                                            success: function(data) {
+                                                                setLikesAndDislikeNumbers(data);
+                                                            },
+                                                            error: function() {
+                                                                alert("Login First Than Like");
+                                                                window.location.href = "<?php echo base_url() ?>login"
 
-                                                                }
-                                                            })
+                                                            }
+                                                        })
+                                                    } else if (classList[0] == 'unactive-dislike') {
+                                                        $('#dislike').removeClass('unactive-dislike').addClass('active-dislike');
+                                                        $('#like').removeClass('active-like').addClass('unactive-like');
 
+                                                        $.ajax({
+                                                            method: "POST",
+                                                            url: `<?php echo base_url() ?>/home/dislike/${post_id}/${user_id}`,
+                                                            success: function(data) {
+                                                                setLikesAndDislikeNumbers(data);
+                                                            },
+                                                            error: function() {
+                                                                alert("Login First Than Like");
+                                                                window.location.href = "<?php echo base_url() ?>login"
 
-                                                        } else {
-                                                            b = 1;
-
-                                                            $.ajax({
-                                                                method: "POST",
-                                                                url: `<?php echo base_url() ?>/home/removelike/${post_id}/${user_id}`,
-
-                                                                success: function() {
-                                                                    document.getElementById(id).style.fill = "#909090";
-                                                                    document.getElementById('dis_like_count').textContent = <?php echo $like_data['dislike']; ?>;
-                                                                    // window.location.reload()
-                                                                },
-                                                                error: function() {
-                                                                    alert("Login First Than Like")
-                                                                    window.location.href = "<?php echo base_url() ?>login"
-
-                                                                }
-                                                            })
-                                                        }
+                                                            }
+                                                        })
                                                     }
+                                                }
+
+                                                function setLikesAndDislikeNumbers(data) {
+                                                    data = JSON.parse(data)
+                                                    document.getElementById('like_count').innerText = data.like;
+                                                    document.getElementById('dis_like_count').innerText = data.dislike;
+
                                                 }
                                             </script>
                                             <center>
                                                 <div>
                                                     <a>
-                                                        <svg style="fill: #909090;" id="like" onclick="change('like')" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="25px" height="25px">
+                                                        <svg id="like" onclick="getLikeDislikeData(this.classList)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="25px" height="25px">
                                                             <path d="M0 0h24v24H0V0z" fill="none" />
                                                             <path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z" />
                                                         </svg>
                                                     </a>
-                                                    <pre id="like_count"><?php echo $like_data['like'];                                                                       ?> 
-                                                    </pre>
+                                                    <span id="like_count"><?php echo $like_data['like']; ?>
+                                                    </span>
                                                     &nbsp;&nbsp;
 
                                                     <a>
-                                                        <svg style="fill: #909090;" id="dislike" onclick="change('dislike')" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+                                                        <svg id="dislike" onclick="getLikeDislikeData(this.classList)" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
                                                             <path d="M0 0h24v24H0z" fill="none" />
                                                             <path d="M15 3H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 23l6.59-6.59c.36-.36.58-.86.58-1.41V5c0-1.1-.9-2-2-2zm4 0v12h4V3h-4z" />
                                                         </svg>
                                                     </a>
-                                                    <pre id="dis_like_count">
+                                                    <span id="dis_like_count">
                                                         <?php echo $like_data['dislike']; ?>
-                                                    </pre>
+                                                    </span>
                                                 </div>
                                             </center>
 

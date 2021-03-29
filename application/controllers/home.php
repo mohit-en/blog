@@ -66,7 +66,14 @@ class home extends CI_Controller
             $formData['user_id'] = $user_id;
             $formData['post_id'] = $post_id;
             $formData['type'] = "1";
+
+            $formData['id'] = $post_id;
+
             $this->home_model->like_model($formData);
+
+            $data = $this->home_model->like_status_model($formData);
+
+            echo json_encode($data);
         } else {
             header('HTTP/1.1 500 Internal Server Booboo');
             header('Content-Type: application/json; charset=UTF-8');
@@ -81,7 +88,14 @@ class home extends CI_Controller
             $formData['user_id'] = $user_id;
             $formData['post_id'] = $post_id;
             $formData['type'] = "0";
+
+            $formData['id'] = $post_id;
+
             $this->home_model->unlike_model($formData);
+
+            $data = $this->home_model->like_status_model($formData);
+
+            echo json_encode($data);
         } else {
             header('HTTP/1.1 500 Internal Server Booboo');
             header('Content-Type: application/json; charset=UTF-8');
@@ -94,11 +108,23 @@ class home extends CI_Controller
         if ($this->session->userdata('id')) {
             $formData['user_id'] = $user_id;
             $formData['post_id'] = $post_id;
+
+            $formData['id'] = $post_id;
+
             $this->home_model->removelike_model($formData);
+
+            $data = $this->home_model->like_status_model($formData);
+
+            echo json_encode($data);
         } else {
             header('HTTP/1.1 500 Internal Server Booboo');
             header('Content-Type: application/json; charset=UTF-8');
             die(json_encode(array('message' => 'Login First', 'code' => 1337)));
         }
+    }
+    function logout()
+    {
+        $this->session->sess_destroy();
+        redirect(base_url());
     }
 }
