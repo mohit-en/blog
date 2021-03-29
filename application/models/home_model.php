@@ -1,5 +1,5 @@
 <?php
-class home_model extends CI_Model
+class Home_model extends CI_Model
 {
     function about_user_model($id)
     {
@@ -87,22 +87,31 @@ class home_model extends CI_Model
     // special for like dislike
     function like_model($formData)
     {
-        $isAlreadyLike =  count($this->db->select("post_id")->where("post_id", $formData['post_id'])->where("user_id", $formData['user_id'])->get('likes')->result_array());
+        $isAlreadyLike =  count($this->db->select("id")->where("post_id", $formData['post_id'])->where("user_id", $formData['user_id'])->get('likes')->result_array());
+
+        $postId = $formData['post_id'];
+        $userId = $formData['user_id'];
+        $type = $formData['type'];
 
         if (!$isAlreadyLike) {
-            $this->db->insert('likes', $formData);
+            // $this->db->insert('likes', $formData);
+            $this->db->query("INSERT INTO likes(post_id,user_id,type) VALUES($postId,$userId,$type)");
         } else {
             $this->db->where("post_id", $formData['post_id'])->where("user_id", $formData['user_id'])->set('type', 1)->update('likes');
         }
-       
     }
 
     function unlike_model($formData)
     {
         $isAlreadyexists =  count($this->db->select("post_id")->where("post_id", $formData['post_id'])->where("user_id", $formData['user_id'])->get('likes')->result_array());
 
+        $postId = $formData['post_id'];
+        $userId = $formData['user_id'];
+        $type = $formData['type'];
+
         if (!$isAlreadyexists) {
-            $this->db->insert('likes', $formData);
+            // $this->db->insert('likes', $formData);
+            $this->db->query("INSERT INTO likes(post_id,user_id,type) VALUES($postId,$userId,$type)");
         } else {
             $this->db->where("post_id", $formData['post_id'])->where("user_id", $formData['user_id'])->set('type', 0)->update('likes');
         }
@@ -115,7 +124,8 @@ class home_model extends CI_Model
 
     function like_status_model($formData)
     {
-        $data = $this->db->select("type")->where("post_id", $formData['id'])->where("user_id", $this->session->userdata('id'))->get('likes')->result_array();
+        // $data = $this->db->select("type")->where("post_id", $formData['id'])->where("user_id", $this->session->userdata('id'))->get('likes')->result_array();
+
 
         $statusData = $this->db->select("type")->where("post_id", $formData['id'])->where("user_id", $this->session->userdata('id'))->get('likes')->result_array();
 

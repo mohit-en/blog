@@ -401,6 +401,12 @@
                                                                     } ?>;
                                                     var post_id = <?php echo $post_id ?>;
 
+                                                    if (user_id == 0) {
+                                                        alert("Login First Than Like");
+                                                        window.location.href = "<?php echo base_url() ?>login"
+                                                        return;
+                                                    }
+
                                                     if (classList[0] == 'active-like') {
                                                         $('#like').removeClass('active-like').addClass('unactive-like');
                                                         $('#dislike').removeClass('active-dislike').addClass('unactive-dislike');
@@ -431,7 +437,6 @@
                                                             error: function() {
                                                                 alert("Login First Than Like");
                                                                 window.location.href = "<?php echo base_url() ?>login"
-
                                                             }
                                                         })
                                                     }
@@ -449,7 +454,6 @@
                                                             error: function() {
                                                                 alert("Login First Than Like");
                                                                 window.location.href = "<?php echo base_url() ?>login"
-
                                                             }
                                                         })
                                                     } else if (classList[0] == 'unactive-dislike') {
@@ -465,7 +469,6 @@
                                                             error: function() {
                                                                 alert("Login First Than Like");
                                                                 window.location.href = "<?php echo base_url() ?>login"
-
                                                             }
                                                         })
                                                     }

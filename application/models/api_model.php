@@ -1,7 +1,7 @@
 
 <?php
 
-class api_model extends CI_Model
+class Api_model extends CI_Model
 {
 
     // for calender

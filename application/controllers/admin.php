@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class admin extends CI_Controller
+class Admin extends CI_Controller
 {
 	public function __construct()
 	{
@@ -21,7 +21,7 @@ class admin extends CI_Controller
 		$active_page['active_page'] = "dashboard";
 		$active_page['page'] = "dashboard";
 		$active_page['data'] = $this->admin_model->deskbord_data();
-		
+
 		$this->load->view('admin/index', $active_page);
 	}
 
@@ -64,7 +64,7 @@ class admin extends CI_Controller
 		$users['users'] = $this->admin_model->all_reg();
 		$this->load->view('admin/index', $users + $active_page);
 	}
-	
+
 
 	public function calender()
 	{
@@ -81,7 +81,7 @@ class admin extends CI_Controller
 		$active_page['page'] = "total_post";
 		$this->load->model('admin_model');
 		$posts['posts'] = $this->admin_model->disp_post();
-		
+
 		// echo "<pre>";
 		// 	print_r($posts);
 		// echo "</pre>";
@@ -102,8 +102,7 @@ class admin extends CI_Controller
 		$post_id = $_GET['post_id'];
 		$this->load->model('admin_model');
 		$this->admin_model->delete_post_by_admin_model($post_id);
-		
+
 		redirect('admin/post_list');
-		
 	}
 }

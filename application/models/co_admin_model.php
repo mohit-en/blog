@@ -1,5 +1,5 @@
 <?php
-class co_admin_model extends CI_Model
+class Co_admin_model extends CI_Model
 {
     function total_posts()
     {

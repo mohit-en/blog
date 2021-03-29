@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class co_admin extends CI_Controller
+class Co_admin extends CI_Controller
 {
 	public function __construct()
 	{
@@ -85,7 +85,7 @@ class co_admin extends CI_Controller
 			'phone' => $this->input->post('phone')
 		);
 
-		
+
 		if (!preg_match("/^[a-zA-Z0-9_]+$/", $data['user_name'])) {
 			echo "<script> alert('Plz enter valid username'); 
 			window.history.back();
@@ -138,7 +138,5 @@ class co_admin extends CI_Controller
 		$active_page['page'] = "update_post";
 
 		$this->load->view('co_admin/index', $active_page);
-		
-		
 	}
 }

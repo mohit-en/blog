@@ -2,7 +2,7 @@
 
 use function PHPSTORM_META\type;
 
-class admin_model extends CI_Model
+class Admin_model extends CI_Model
 {
     function all()
     {
