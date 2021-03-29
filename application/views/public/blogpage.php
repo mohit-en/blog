@@ -398,11 +398,15 @@
                                                                                                                             ?>;
                                                                     document.getElementById('like_count').textContent = <?php echo $like_data['like'] + 1; ?>;
                                                                     if (b == 0) {
-                                                                        document.getElementById('dis_like_count').textContent = <?php echo $like_data['dislike'] - 1; ?>;
+                                                                        if (document.getElementById('dis_like_count').textContent == 1) {
+                                                                            document.getElementById('dis_like_count').textContent = <?php echo $like_data['dislike']; ?>;
+                                                                        } else {
+                                                                            document.getElementById('dis_like_count').textContent = <?php echo $like_data['dislike'] - 1; ?>;
+                                                                        }
                                                                     }
                                                                 },
                                                                 error: function() {
-                                                                    alert("Login First Than Like")
+                                                                    alert("Login First Than Like");
                                                                     window.location.href = "<?php echo base_url() ?>login"
 
                                                                 }
@@ -442,7 +446,11 @@
                                                                     document.getElementById('like').style.fill = "#909090";
                                                                     document.getElementById('dis_like_count').textContent = <?php echo $like_data['dislike'] + 1; ?>;
                                                                     if (a == 1) {
-                                                                        document.getElementById('like_count').textContent = <?php echo $like_data['like'] - 1; ?>;
+                                                                        if (document.getElementById('like_count').textContent == 1) {
+                                                                            document.getElementById('like_count').textContent = <?php echo $like_data['like']; ?>;
+                                                                        }else{
+                                                                            document.getElementById('like_count').textContent = <?php echo $like_data['like'] - 1; ?>;
+                                                                        }
                                                                     }
                                                                     // window.location.reload()
                                                                 },
