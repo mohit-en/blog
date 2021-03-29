@@ -123,7 +123,7 @@
 
                 <!--Excerpt-->
                 <br>
-                <h1 class="text-center dark-grey-text pb-3">
+                <h1 style="font-size: xx-large;" class="text-center dark-grey-text pb-3">
                     <strong><?php echo $data['user_data']->user_name; ?>'S</strong> BLOG
                 </h1>
 
@@ -136,7 +136,7 @@
         <!--/Intro-->
 
         <!--Blog section-->
-        <section>
+        <section style="width: 100%;">
             <div class="container-fluid grey lighten-4">
                 <hr class="my-5">
                 <div class="container">
