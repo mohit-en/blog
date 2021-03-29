@@ -47,6 +47,7 @@
                                         <th>view</th>
                                         <th>Access</th>
                                         <th>Delete</th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -56,9 +57,9 @@
                                                 <td scope="row"><?php echo $post['post_id']; ?></td>
                                                 <td><?php echo $post['article_title']; ?></td>
                                                 <td><?php echo $post['date']; ?></td>
-                                                <td><?php echo anchor(base_url('home/blogpage/') . $post['post_id'], 'View',"target = '_blank'"); 
+                                                <td><?php echo anchor(base_url('home/blogpage/') . $post['post_id'], 'View', "target = '_blank'");
                                                     ?></td>
-                                                <td><?php echo anchor(base_url('co_admin/update_post_view?post_id=') . $post['post_id'], 'Edit'); 
+                                                <td><?php echo anchor(base_url('co_admin/update_post_view?post_id=') . $post['post_id'], 'Edit');
                                                     ?></td>
                                                 <td><?php echo anchor(base_url('co_admin/delete_row?post_id=') . $post['post_id'], 'DELETE'); ?></td>
 

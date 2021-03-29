@@ -4,8 +4,12 @@ class Co_admin_model extends CI_Model
     function total_posts()
     {
         $id = $this->session->userdata('id');
-        $data = $this->db->where('user_id', $id)
-            ->get('total_posts')->result_array();
+        $data = $this->db->select('post_id, article_title, date,user_id')->where('user_id', $id)
+            ->get('total_posts')->result_array();       
+        // echo "<pre>";
+        // print_r($data);
+        // echo "</pre>";
+        // exit;
         $this->db->where('user_id', $id)
             ->set('total_post', count($data))
             ->update('user_list');
@@ -56,9 +60,9 @@ class Co_admin_model extends CI_Model
         $this->db->where('user_id', $data['user_id']);
         $this->db->update('user_list', array('profile_pic' => $data['img_path']));
     }
-    function update_post_view_model($post_id)    
+    function update_post_view_model($post_id)
     {
-        $p = $this->db->where('post_id',$post_id)->get('total_posts')->result_array();
+        $p = $this->db->where('post_id', $post_id)->get('total_posts')->result_array();
         // echo "<pre>";
         // print_r($p);
         // echo "</pre>";
@@ -67,6 +71,5 @@ class Co_admin_model extends CI_Model
         // print_r($p);
         // echo "</pre>";
         return $p;
-        
     }
 }
