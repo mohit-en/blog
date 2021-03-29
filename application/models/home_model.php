@@ -94,6 +94,7 @@ class home_model extends CI_Model
         } else {
             $this->db->where("post_id", $formData['post_id'])->where("user_id", $formData['user_id'])->set('type', 1)->update('likes');
         }
+       
     }
 
     function unlike_model($formData)

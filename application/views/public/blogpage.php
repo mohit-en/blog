@@ -385,16 +385,21 @@
                                                     if (id == 'like') {
                                                         if (a == 0) {
                                                             a = 1;
-                                                            document.getElementById(id).style.fill = "#3DA6FF";
-                                                            document.getElementById('dislike').style.fill = "#909090";
 
                                                             $.ajax({
                                                                 method: "POST",
                                                                 url: `<?php echo base_url() ?>/home/like/${post_id}/${user_id}`,
 
-                                                                success: function() {
-                                                                    window.location.reload()
-
+                                                                success: function(tt) {
+                                                                    // window.location.reload()
+                                                                    document.getElementById(id).style.fill = "#3DA6FF";
+                                                                    document.getElementById('dislike').style.fill = "#909090";
+                                                                    // document.getElementById('like_count').textContent = <?php //echo $like_data['like']; 
+                                                                                                                            ?>;
+                                                                    document.getElementById('like_count').textContent = <?php echo $like_data['like'] + 1; ?>;
+                                                                    if (b == 0) {
+                                                                        document.getElementById('dis_like_count').textContent = <?php echo $like_data['dislike'] - 1; ?>;
+                                                                    }
                                                                 },
                                                                 error: function() {
                                                                     alert("Login First Than Like")
@@ -405,14 +410,15 @@
 
                                                         } else {
                                                             a = 0;
-                                                            document.getElementById(id).style.fill = "#909090";
 
                                                             $.ajax({
                                                                 method: "POST",
                                                                 url: `<?php echo base_url() ?>/home/removelike/${post_id}/${user_id}`,
 
                                                                 success: function() {
-                                                                    window.location.reload()
+                                                                    document.getElementById(id).style.fill = "#909090";
+                                                                    document.getElementById('like_count').textContent = <?php echo $like_data['like']; ?>;
+                                                                    // window.location.reload()
                                                                 },
                                                                 error: function() {
                                                                     alert("Login First Than Like")
@@ -426,16 +432,19 @@
                                                     if (id == "dislike") {
                                                         if (b == 1) {
                                                             b = 0;
-                                                            document.getElementById(id).style.fill = "red";
-                                                            document.getElementById('like').style.fill = "#909090";
 
                                                             $.ajax({
                                                                 method: "POST",
                                                                 url: `<?php echo base_url() ?>/home/dislike/${post_id}/${user_id}`,
 
                                                                 success: function() {
-
-                                                                    window.location.reload()
+                                                                    document.getElementById(id).style.fill = "red";
+                                                                    document.getElementById('like').style.fill = "#909090";
+                                                                    document.getElementById('dis_like_count').textContent = <?php echo $like_data['dislike'] + 1; ?>;
+                                                                    if (a == 1) {
+                                                                        document.getElementById('like_count').textContent = <?php echo $like_data['like'] - 1; ?>;
+                                                                    }
+                                                                    // window.location.reload()
                                                                 },
                                                                 error: function() {
                                                                     alert("Login First Than Like")
@@ -447,15 +456,15 @@
 
                                                         } else {
                                                             b = 1;
-                                                            document.getElementById(id).style.fill = "#909090";
 
                                                             $.ajax({
                                                                 method: "POST",
                                                                 url: `<?php echo base_url() ?>/home/removelike/${post_id}/${user_id}`,
 
                                                                 success: function() {
-
-                                                                    window.location.reload()
+                                                                    document.getElementById(id).style.fill = "#909090";
+                                                                    document.getElementById('dis_like_count').textContent = <?php echo $like_data['dislike']; ?>;
+                                                                    // window.location.reload()
                                                                 },
                                                                 error: function() {
                                                                     alert("Login First Than Like")
@@ -475,10 +484,9 @@
                                                             <path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z" />
                                                         </svg>
                                                     </a>
-                                                    <?php
-                                                    echo $like_data['like']
-
-                                                    ?> &nbsp;&nbsp;
+                                                    <pre id="like_count"><?php echo $like_data['like'];                                                                       ?> 
+                                                    </pre>
+                                                    &nbsp;&nbsp;
 
                                                     <a>
                                                         <svg style="fill: #909090;" id="dislike" onclick="change('dislike')" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
@@ -486,7 +494,9 @@
                                                             <path d="M15 3H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 23l6.59-6.59c.36-.36.58-.86.58-1.41V5c0-1.1-.9-2-2-2zm4 0v12h4V3h-4z" />
                                                         </svg>
                                                     </a>
-                                                    <?php echo $like_data['dislike'] ?>
+                                                    <pre id="dis_like_count">
+                                                        <?php echo $like_data['dislike']; ?>
+                                                    </pre>
                                                 </div>
                                             </center>
 
