@@ -70,9 +70,9 @@
 
                 <!-- /.social-auth-links -->
 
-                <p class="mb-1">
+                <!-- <p class="mb-1">
                     <a href="">I forgot my password</a>
-                </p>
+                </p> -->
                 <p class="mb-0">
                     <a href="<?php echo base_url(); ?>register/index" class="text-center">Register a new membership</a>
                 </p>

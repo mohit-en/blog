@@ -106,7 +106,7 @@
                     </div>
 
                     <small>
-                        <span class="text-danger"><?php echo form_error('user_capcha'); ?></span>
+                        <span class="text-danger"><?php// echo form_error('user_capcha'); ?></span>
                     </small> -->
                     <!-- /Google capcha -->
 

@@ -51,9 +51,8 @@ class Register extends CI_Controller
                 // exit;
                 // redirect('home/index');
             } else {
-                // echo "User name already exist Please choose other.";
-                // echo "User name already exist Please choose other.";
-                echo "<script>alert('User name already exist Please choose other.'); window.location.href = '/blog/register' </script>";
+                    echo "<script>alert('User name already exist Please choose other.'); </script>";
+                $this->index();
             }
         } else {
             $this->index();
