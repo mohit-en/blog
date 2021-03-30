@@ -1,14 +1,14 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="#" class="brand-link">
+
+    <span href="#" class="brand-link">
         <img src="<?php echo base_url(); ?>tools/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: 0.8" />
         <span class="brand-text font-weight-light">Co - Admin</span>
         <button id="sideBarCloseButton" style=" border: none; display : none;" class="btn btn-link float-right " onclick="moblie_sidebar_view()">
             <i style="color : #4C4C4C" class="fas fa-bars text-light"> </i>
         </button>
-
-    </a>
+    </span>
 
     <!-- Sidebar -->
     <div class="sidebar">
@@ -32,7 +32,7 @@
                 <img src="<?php echo $img_path; ?>" class="img-circle elevation-2" alt="User Image" />
             </div>
             <div class="info">
-                <a href="" class="d-block"><?php echo $this->session->userdata('name'); ?></a>
+                <a href="<?php echo base_url('co_admin/update_profile');  ?>" class="d-block"><?php echo $this->session->userdata('name'); ?></a>
             </div>
         </div>
 
